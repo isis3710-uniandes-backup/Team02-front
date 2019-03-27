@@ -21,7 +21,7 @@ Utilizamos una base de datos en SQLite3.
 UML link: https://www.lucidchart.com/invitations/accept/e41fe50b-a024-4455-aa34-b2a98cb44e8e
 Diagrama Relacional: Aún pendiente de decisiones de diseño
 
-**URIs de relaciones funcionando y listas para probar:**
+**###URIs de relaciones funcionando y listas para probar:**
 
 -Asociar una canción a una playlist
 http://localhost:3000/cancion/1/anadiraplaylist/1
