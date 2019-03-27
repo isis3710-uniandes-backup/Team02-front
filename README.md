@@ -21,18 +21,19 @@ Utilizamos una base de datos en SQLite3.
 UML link: https://www.lucidchart.com/invitations/accept/e41fe50b-a024-4455-aa34-b2a98cb44e8e
 Diagrama Relacional: Aún pendiente de decisiones de diseño
 
-###URIs de relaciones funcionando y listas para probar
-Asociar una canción a una playlist
+###URIs de relaciones funcionando y listas para probar:
+
+-Asociar una canción a una playlist
 http://localhost:3000/cancion/1/anadiraplaylist/1
 
-Obtener las playlists de un usuario
+-Obtener las playlists de un usuario
 http://localhost:3000/usuario/2/playlists
 
-Obtener las canciones de una playlist
+-Obtener las canciones de una playlist
 http://localhost:3000/playlist/1/canciones
 
-Obtener los albumes de un artista
+-Obtener los albumes de un artista
 http://localhost:3000/artista/2/albumes
 
-Obtener las canciones de un album
+-Obtener las canciones de un album
 http://localhost:3000/album/1/canciones
