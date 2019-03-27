@@ -37,3 +37,9 @@ http://localhost:3000/artista/2/albumes
 
 -Obtener las canciones de un album
 http://localhost:3000/album/1/canciones
+
+### Tareas que funcionan correctamente conectando back y front:
+1. Iniciar Sesión
+2. Registrar una nueva cuenta
+3. Ver las playlists que tiene un usuario
+4. Ver las canciones de una playlist
