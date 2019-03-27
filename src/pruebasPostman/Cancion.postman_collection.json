@@ -1,0 +1,122 @@
+{
+	"info": {
+		"_postman_id": "b9f5f84c-f2f0-47fc-9faf-0f1c210354dd",
+		"name": "Cancion",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST cancion",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\" : \"cancion3\",\n\t\"duracion\" : 222.0,\n\t\"visitas\" : 1230,\n\t\"audio\" : \"/audios/audio3\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/cancion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"cancion"
+					]
+				},
+				"description": "Crea una nueva cancion"
+			},
+			"response": []
+		},
+		{
+			"name": "GET cancion especifica",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/cancion/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"cancion",
+						"2"
+					]
+				},
+				"description": "Obtiene la canción con el id especificado"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT cancion",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\" : \"cancion1-modificada\",\n\t\"duracion\" : 2222.0,\n\t\"visitas\" : 12330,\n\t\"audio\" : \"/audios/audio1-modificado\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/cancion/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"cancion",
+						"1"
+					]
+				},
+				"description": "Actualiza la información de una canción"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE cancion",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/cancion/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"cancion",
+						"3"
+					]
+				},
+				"description": "Elimina la cancion con el id especificado"
+			},
+			"response": []
+		}
+	]
+}

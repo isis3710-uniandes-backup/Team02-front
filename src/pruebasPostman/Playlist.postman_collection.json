@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "0145917d-d55d-497a-bb22-24aaa701fae2",
+		"name": "Playlist",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Traer todos los playlist",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/achipman0/playlist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"achipman0",
+						"playlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Traer un playlist específico",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\"loginUsuario\":\"achipman0\",\"nombre\":\"Albertine\",\"tipo\":\"Gabriel\",\"duracion\":80}]"
+				},
+				"url": {
+					"raw": "http://localhost:3000/achipman0/playlist/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"achipman0",
+						"playlist",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear una nueva playlist",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\"loginUsuario\":\"achipman0\",\"nombre\":\"Albertine\",\"tipo\":\"Gabriel\",\"duracion\":80}]"
+				},
+				"url": {
+					"raw": "http://localhost:3000/achipman0/playlist/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"achipman0",
+						"playlist",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cambiar un playlist",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\"loginUsuario\":\"achipman0\",\"nombre\":\"Albertine2\",\"tipo\":\"Gabriel\",\"duracion\":80}]"
+				},
+				"url": {
+					"raw": "http://localhost:3000/achipman0/playlist/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"achipman0",
+						"playlist",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "borrar una playlist",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/achipman0/playlist/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"achipman0",
+						"playlist",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,122 @@
+{
+	"info": {
+		"_postman_id": "6084ff65-a291-46d0-9778-632f3ac44391",
+		"name": "Artista",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST artista",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\" : \"Artista 1\",\n\t\"bio\" : \"Bio Artista 1\",\n\t\"imagen\" : \"/imagenes/artista1\",\n\t\"pais\" : \"Colombia\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/artista",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"artista"
+					]
+				},
+				"description": "Crea un artista"
+			},
+			"response": []
+		},
+		{
+			"name": "GET artista",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/artista/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"artista",
+						"1"
+					]
+				},
+				"description": "Obtiene el artista con el id especificado"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT artista",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\" : \"Artista 1-mod\",\n\t\"bio\" : \"Bio Artista 1-mod\",\n\t\"imagen\" : \"/imagenes/artista1-mod\",\n\t\"pais\" : \"Colombia\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/artista/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"artista",
+						"1"
+					]
+				},
+				"description": "Actualiza la información de un artista"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE artista",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/artista/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"artista",
+						"1"
+					]
+				},
+				"description": "Elmina el artista especificado"
+			},
+			"response": []
+		}
+	]
+}

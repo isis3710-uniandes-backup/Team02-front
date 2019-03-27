@@ -1,0 +1,141 @@
+{
+	"info": {
+		"_postman_id": "618f9fff-a6c8-4b83-8702-9490c5962ae0",
+		"name": "Usuarios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Traer todos los usuarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/usuario",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Traer Usuario por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/usuario/achipman0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuario",
+						"achipman0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar usuario",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\"loginUsuario\":\"achipman0\",\"correo\":\"9999@prueba.com\",\"clave\":\"yuE8Ypt8h\",\"imagen\":\"http://mac.com/turpis/eget.json?enim=ultrices&blandit=posuere&mi=cubilia&in=curae&porttitor=donec&pede=pharetra&justo=magna&eu=vestibulum&massa=aliquet&donec=ultrices&dapibus=erat&duis=tortor\",\"idioma\":\"Swati\",\"premium\":0}]"
+				},
+				"url": {
+					"raw": "http://localhost:3000/usuario/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuario",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear nuevo usuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\"loginUsuario\":\"achipman2\",\"correo\":\"igear0@examiner.com\",\"clave\":\"yuE8Ypt8h\",\"imagen\":\"http://mac.com/turpis/eget.json?enim=ultrices&blandit=posuere&mi=cubilia&in=curae&porttitor=donec&pede=pharetra&justo=magna&eu=vestibulum&massa=aliquet&donec=ultrices&dapibus=erat&duis=tortor\",\"idioma\":\"Swati\",\"premium\":0}]"
+				},
+				"url": {
+					"raw": "http://localhost:3000/usuario",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar usuario por ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/usuario/achipman0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuario",
+						"achipman0"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

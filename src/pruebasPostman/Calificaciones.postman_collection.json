@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "11aef2e2-f86f-40a1-a5ed-a55dd685ff9e",
+		"name": "Calificaciones",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Traer todas las calificaciones",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/calificacion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"calificacion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Traer calificacion específica",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/calificacion/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"calificacion",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear nueva calificación",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\"calificacion\":57,\"comentario\":\"Naphazoline Hydrochloride and Polyethylene glycol 300\"}]"
+				},
+				"url": {
+					"raw": "http://localhost:3000/calificacion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"calificacion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cambiar calificación",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\"calificacion\":57,\"comentario\":\"2 Naphazoline Hydrochloride and Polyethylene glycol 300\"}]"
+				},
+				"url": {
+					"raw": "http://localhost:3000/calificacion/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"calificacion",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "borrar calificación",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\"calificacion\":57,\"comentario\":\"2 Naphazoline Hydrochloride and Polyethylene glycol 300\"}]"
+				},
+				"url": {
+					"raw": "http://localhost:3000/calificacion/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"calificacion",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,165 @@
+{
+	"info": {
+		"_postman_id": "e9414b48-d6eb-4ef7-a169-1e8a2279ae25",
+		"name": "Anuncios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get anuncios",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/anuncio",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"anuncio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post anuncio",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"001\",\n    \"empresa\": \"empresaAAA\",\n  \"nombre\": \"nombreAnuncio\",\n  \"video\": \"urlVideo\" \n }"
+				},
+				"url": {
+					"raw": "http://localhost:3000/anuncio",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"anuncio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get posted anuncio",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"001\",\n    \"empresa\": \"empresaAAA\",\n  \"nombre\": \"nombreAnuncio\",\n  \"video\": \"urlVideo\" \n }"
+				},
+				"url": {
+					"raw": "http://localhost:3000/anuncio/001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"anuncio",
+						"001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put anuncio",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"001\",\n    \"empresa\": \"empresaAAA\",\n  \"nombre\": \"nombreAnuncio2\",\n  \"video\": \"urlVideo\" \n }"
+				},
+				"url": {
+					"raw": "http://localhost:3000/anuncio/001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"anuncio",
+						"001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete anuncio",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/anuncio/001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"anuncio",
+						"001"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

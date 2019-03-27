@@ -1,0 +1,129 @@
+{
+	"info": {
+		"_postman_id": "faaf8418-b721-4f6c-bae2-61dc7bc47651",
+		"name": "Album",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST album",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\" : \"Album 1\",\n\t\"foto\" : \"/imagenes/Album1\",\n\t\"anio\" : 2019\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/album",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"album"
+					]
+				},
+				"description": "Crea un nuevo album"
+			},
+			"response": []
+		},
+		{
+			"name": "GET album",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/album/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"album",
+						"1"
+					]
+				},
+				"description": "Obtiene el album con el id especificado"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT album",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\" : \"Album 1-modificado\",\n\t\"foto\" : \"/imagenes/Album1-modificado\",\n\t\"anio\" : 20120\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/album/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"album",
+						"1"
+					]
+				},
+				"description": "Actualiza al album especificado con la información dada"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE album",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/album/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"album",
+						"1"
+					]
+				},
+				"description": "Elimina el album especificado"
+			},
+			"response": []
+		}
+	]
+}
