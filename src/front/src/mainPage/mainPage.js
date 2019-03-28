@@ -22,7 +22,7 @@ class MainPage extends Component {
               <div className="sidebar-heading"><i className="fas fa-user-circle"></i> Account</div>
             </div>
           </div>
-          <div class="background">
+          <div className="background">
             <div className="container" id="detail">
               <div className="header">
                 Home

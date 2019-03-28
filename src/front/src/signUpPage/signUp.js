@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import './signUp.css';
-import { Link } from 'react-router-dom'
+import ReactDOM from 'react-dom';
+import LoginPage from '../loginPage/loginPage.js'
 
 class SignUp extends Component {
     render() {
         return (
             <div id="register">
-                <div class="background">
+                <div className="background">
                     <div className="container">
                         <div className="d-flex justify-content-center h-100">
                             <div className="card" id="carta">
@@ -41,7 +42,7 @@ class SignUp extends Component {
                                                     <div className="input-group-prepend">
                                                         <span className="input-group-text"><i className="fas fa-user"></i></span>
                                                     </div>
-                                                    <input type="text" className="form-control" placeholder="Name"></input>
+                                                    <input type="text" className="form-control" placeholder="Name" id="name"></input>
                                                 </div>
                                             </div>
                                             <div className="col-sm-6">
@@ -49,7 +50,7 @@ class SignUp extends Component {
                                                     <div className="input-group-prepend">
                                                         <span className="input-group-text"><i className="fas fa-user"></i></span>
                                                     </div>
-                                                    <input type="text" className="form-control" placeholder="Last Name"></input>
+                                                    <input type="text" className="form-control" placeholder="Last Name" id="lastName"></input>
                                                 </div>
                                             </div>
                                         </div>
@@ -59,7 +60,7 @@ class SignUp extends Component {
                                                     <div className="input-group-prepend">
                                                         <span className="input-group-text"><i className="fas fa-at"></i></span>
                                                     </div>
-                                                    <input type="email" className="form-control" placeholder="Email"></input>
+                                                    <input type="email" className="form-control" placeholder="Email" id="email"></input>
                                                 </div>
                                             </div>
                                             <div className="col-sm-6">
@@ -67,7 +68,7 @@ class SignUp extends Component {
                                                     <div className="input-group-prepend">
                                                         <span className="input-group-text"><i className="fas fa-at"></i></span>
                                                     </div>
-                                                    <input type="email" className="form-control" placeholder="Confirm Email"></input>
+                                                    <input type="email" className="form-control" placeholder="Confirm Email" id="cemail"></input>
                                                 </div>
                                             </div>
                                         </div>
@@ -77,7 +78,7 @@ class SignUp extends Component {
                                                     <div className="input-group-prepend">
                                                         <span className="input-group-text"><i className="fas fa-key"></i></span>
                                                     </div>
-                                                    <input type="password" className="form-control" placeholder="Password"></input>
+                                                    <input type="password" className="form-control" placeholder="Password" id="password"></input>
                                                 </div>
                                             </div>
                                             <div className="col-sm-6">
@@ -85,7 +86,7 @@ class SignUp extends Component {
                                                     <div className="input-group-prepend">
                                                         <span className="input-group-text"><i className="fas fa-key"></i></span>
                                                     </div>
-                                                    <input type="password" className="form-control" placeholder="Confirm Password"></input>
+                                                    <input type="password" className="form-control" placeholder="Confirm Password" id="cpassword"></input>
                                                 </div>
                                             </div>
                                         </div>
@@ -94,14 +95,18 @@ class SignUp extends Component {
                                                 <div className="d-flex justify-content-center links form-group">
                                                     By creating an account you accept our <span className="link"> Terms and Conditions</span>
                                                 </div>
-                                                <input type="submit" value="Create Account" className="btn login_btn"></input>
+                                                <div id="d-flex justify-content-center form-group">
+                                                </div>
                                             </div>
                                         </div>
                                     </form>
+                                    <button className="btn login_btn" onClick={this.postUser}>Create Account</button>
+                                    <div id="errors">
+                                    </div>
                                 </div>
                                 <div className="card-footer">
                                     <div className="d-flex justify-content-center links">
-                                        Do you have an account? <Link to="/login" className="link"> Sign In</Link>
+                                        Do you have an account? <span to="/login" className="link" onClick={this.goToLogin}> Sign In</span>
                                     </div>
                                     <div className="d-flex justify-content-center links">
                                         <span className="link"> Forgot your password?</span>
@@ -114,6 +119,33 @@ class SignUp extends Component {
             </div>
         );
     }
+    postUser() {
+
+
+        var data = {
+            "loginUsuario": document.getElementById("name").value + " " + document.getElementById("lastName").value,
+            "correo": document.getElementById("email").value,
+            "imagen": "todo",
+            "clave": document.getElementById("password").value,
+            "premium": "0",
+            "idioma": "ES"
+        }
+        console.log(data);
+        fetch("http://localhost:3001/usuario", {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        }).then(res => res.json())
+            .catch(error => console.error('Error:', error))
+            .then(response => console.log('Success:', response));
+    }
+    goToLogin() {
+        ReactDOM.render(<LoginPage />, document.getElementById('root'));
+    }
+
 }
 
 export default SignUp;

@@ -3,14 +3,13 @@ import './loginPage.css';
 import SignUp from '../signUpPage/signUp';
 import ReactDOM from 'react-dom';
 import MainPage from '../mainPage/mainPage';
-import { Link } from 'react-router-dom'
 
 
 class Login extends Component {
   render() {
     return (
       <div id="login">
-        <div class="background">
+        <div className="background">
           <div className="container">
             <div className="d-flex justify-content-center">
               <div className="card" id="carta">
@@ -52,13 +51,13 @@ class Login extends Component {
                       <input type="password" className="form-control" placeholder="password"></input>
                     </div>
                     <div className="form-group">
-                      <Link to="/home"><input type="submit" value="Login" className="btn float-right login_btn" onClick={this.logUser}></input></Link>
+                      <span to="/home"><input type="submit" value="Login" className="btn float-right login_btn" onClick={this.logUser}></input></span>
                     </div>
                   </form>
                   <br></br>
                   <br></br>
                   <div className="d-flex justify-content-center links">
-                    Don't have an account? <Link to="/register" className="link" onClick={this.goToSignUp}> Sign Up</Link>
+                    Don't have an account? <span className="link" onClick={this.goToSignUp}> Sign Up</span>
                   </div>
                   <div className="d-flex justify-content-center links">
                     <span className="link"> Forgot your password?</span>
