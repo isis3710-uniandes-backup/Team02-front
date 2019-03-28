@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b9f5f84c-f2f0-47fc-9faf-0f1c210354dd",
+		"_postman_id": "63b4707e-e41c-4b36-a00a-b1820a15c602",
 		"name": "Cancion",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -19,7 +19,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"nombre\" : \"cancion3\",\n\t\"duracion\" : 222.0,\n\t\"visitas\" : 1230,\n\t\"audio\" : \"/audios/audio3\"\n}"
+					"raw": "{\n\t\"nombre\" : \"cancion3\",\n\t\"duracion\" : 222.0,\n\t\"visitas\" : 1230,\n\t\"audio\" : \"/audios/audio4\",\n\t\"id\":1,\n\t\"idAlbum\": 1\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3000/cancion",
@@ -30,6 +30,40 @@
 					"port": "3000",
 					"path": [
 						"cancion"
+					]
+				},
+				"description": "Crea una nueva cancion"
+			},
+			"response": []
+		},
+		{
+			"name": "POST asociar cancion con playlist",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/cancion/1/anadiraplaylist/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"cancion",
+						"1",
+						"anadiraplaylist",
+						"1"
 					]
 				},
 				"description": "Crea una nueva cancion"
@@ -55,6 +89,30 @@
 					"path": [
 						"cancion",
 						"2"
+					]
+				},
+				"description": "Obtiene la canción con el id especificado"
+			},
+			"response": []
+		},
+		{
+			"name": "GET todas las canciones",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/cancion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"cancion"
 					]
 				},
 				"description": "Obtiene la canción con el id especificado"

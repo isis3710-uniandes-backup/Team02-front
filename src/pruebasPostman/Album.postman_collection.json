@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "faaf8418-b721-4f6c-bae2-61dc7bc47651",
+		"_postman_id": "eed222c2-c6b0-44ca-8a98-ee982a226944",
 		"name": "Album",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -19,7 +19,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"nombre\" : \"Album 1\",\n\t\"foto\" : \"/imagenes/Album1\",\n\t\"anio\" : 2019\n}"
+					"raw": "{\n\t\"id\": 3,\n\t\"nombre\" : \"Album 3\",\n\t\"foto\" : \"/imagenes/Album3\",\n\t\"anio\" : 2005,\n\t\"idArtista\": 2\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3000/album",
@@ -62,6 +62,70 @@
 					"path": [
 						"album",
 						"1"
+					]
+				},
+				"description": "Obtiene el album con el id especificado"
+			},
+			"response": []
+		},
+		{
+			"name": "GET todos los album",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/album",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"album"
+					]
+				},
+				"description": "Obtiene el album con el id especificado"
+			},
+			"response": []
+		},
+		{
+			"name": "GET canciones de album",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/album/1/canciones",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"album",
+						"1",
+						"canciones"
 					]
 				},
 				"description": "Obtiene el album con el id especificado"

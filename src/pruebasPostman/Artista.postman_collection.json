@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "6084ff65-a291-46d0-9778-632f3ac44391",
+		"_postman_id": "57cc6b1c-8b60-4b94-8a63-53c0b971e8e9",
 		"name": "Artista",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -46,7 +46,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:3000/artista/1",
+					"raw": "http://localhost:3000/artista/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -54,7 +54,58 @@
 					"port": "3000",
 					"path": [
 						"artista",
-						"1"
+						"2"
+					]
+				},
+				"description": "Obtiene el artista con el id especificado"
+			},
+			"response": []
+		},
+		{
+			"name": "GET todos los artistas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/artista/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"artista",
+						""
+					]
+				},
+				"description": "Obtiene el artista con el id especificado"
+			},
+			"response": []
+		},
+		{
+			"name": "GET albumes de artista",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/artista/2/albumes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"artista",
+						"2",
+						"albumes"
 					]
 				},
 				"description": "Obtiene el artista con el id especificado"

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "618f9fff-a6c8-4b83-8702-9490c5962ae0",
+		"_postman_id": "bc54aeb0-53d6-43cd-a4f3-dae823707e65",
 		"name": "Usuarios",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -38,7 +38,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:3000/usuario/achipman0",
+					"raw": "http://localhost:3000/usuario/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -46,7 +46,32 @@
 					"port": "3000",
 					"path": [
 						"usuario",
-						"achipman0"
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Traer playlists de usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/usuario/2/playlists",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuario",
+						"2",
+						"playlists"
 					]
 				}
 			},
