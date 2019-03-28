@@ -96,7 +96,57 @@
 			"response": []
 		},
 		{
+			"name": "GET cancion por nombre",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/cancion/buscar/cancionuno",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"cancion",
+						"buscar",
+						"cancionuno"
+					]
+				},
+				"description": "Obtiene la canción con el id especificado"
+			},
+			"response": []
+		},
+		{
 			"name": "GET todas las canciones",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/cancion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"cancion"
+					]
+				},
+				"description": "Obtiene la canción con el id especificado"
+			},
+			"response": []
+		},
+		{
+			"name": "GET cancion random",
 			"request": {
 				"method": "GET",
 				"header": [],

@@ -2,6 +2,58 @@ var express = require('express');
 var router = express.Router();
 var sqlite3 = require('sqlite3').verbose();
 
+//MARIO WORK 2.2 START
+
+/* GET cancion especifica por nombre. */
+router.get('/buscar/:nombre', function (req, res) {
+    var db = new sqlite3.Database('./db/projectDB.db', (err) => {
+        if (err) {
+            res.status(500).send(err.message);
+        }
+        else {
+            var nombre = req.params.nombre;
+            // procedure Statement in sql RECOMENDADO POR EL MISMISIMO KOPETE AUTENTICACION TOKENS SSL
+            db.get(`SELECT * FROM cancion WHERE nombre = ?`,[nombre], function (err, row) {
+                if (err) {
+                    res.status(500).send('El servidor no pudo procesar la solicitud')
+                }
+                else {
+                    if(row === undefined){
+                        res.status(404).send('La cancion con nombre ' + req.params.nombre + ' no existe');
+                    }
+                    res.send(row);
+                }
+            });
+        }
+        db.close();
+    });
+});
+
+
+/* GET cancion random para im feeling lucky. */
+router.get('/random', function (req, res) {
+    var db = new sqlite3.Database('./db/projectDB.db', (err) => {
+        if (err) {
+            res.status(500).send(err.message);
+        }
+        else {
+            db.all(`SELECT * FROM cancion ORDER BY RANDOM() LIMIT 1`, function (err, row) {
+                if (err) {
+                    res.status(500).send('El servidor no pudo procesar la solicitud')
+                }
+                else {
+                    if(row === undefined){
+                        res.status(404).send('No fue posible encontrar la cancion radom');
+                    }
+                    res.send(row);
+                }
+            });
+        }
+        db.close();
+    });
+});
+//MARIO WORK 2.2 END
+
 
 //MARIO WORK 2.1 START
 
