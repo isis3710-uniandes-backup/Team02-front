@@ -38,6 +38,9 @@ http://localhost:3000/artista/2/albumes
 -Obtener las canciones de un album
 http://localhost:3000/album/1/canciones
 
+### Para ver otras UEIs funcionando:
+Visitar la carpeta \src\pruebasPostman
+
 ### Tareas que funcionan correctamente conectando back y front:
 1. Iniciar Sesión
 2. Registrar una nueva cuenta
