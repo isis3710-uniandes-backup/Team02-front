@@ -1,28 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Numans');
-body {
-    background-image: url("http://www.landmarkhearing.com/wp-content/uploads/2018/06/concert-crowd.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100%;
-    font-family: 'Numans', sans-serif;
-}
-
-.container {
-    height: 100%;
+#register .container {
     align-content: center;
 }
 
-.align-items-center {
+#register .align-items-center {
     -ms-flex-align: center!important;
     align-items: center!important;
 }
 
-.d-flex {
+#register .d-flex {
     display: -ms-flexbox!important;
     display: flex!important;
 }
 
-.card {
+#register .card {
     width: 800px;
     height: 600px;
     margin-top: auto;
@@ -30,63 +21,67 @@ body {
     background-color: rgba(129, 129, 129, 0.8) !important;
 }
 
-.card-header h1 {
+#register .card-header h1 {
     text-align: center;
     color: rgb(5, 26, 91);
 }
 
-.input-group-prepend span {
+#register .input-group-prepend span {
     background-color: rgb(5, 26, 91);
     width: 50px;
     color: white;
     border: 0 !important;
 }
 
-.login_btn {
+#register .login_btn {
     color: white;
     background-color: rgb(5, 26, 91);
-    width: 200px;
+    width: 100%;
 }
 
-.login_btn:hover {
+#register .login_btn:hover {
     color: rgb(5, 26, 91);
     background-color: white;
 }
 
-.links {
+#register .links {
     color: white;
 }
-.links a{
+#register .links a{
     color: rgb(5, 26, 91);
     margin-left: 5px;
 }
 
-.option {
+#register .option {
     color: white;
 }
-
-.option button {
+#register .background{
+    background-image: url("http://www.landmarkhearing.com/wp-content/uploads/2018/06/concert-crowd.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    font-family: 'Numans', sans-serif;
+    color: white;
+}
+#register .option button {
     width: 100px;
     font-size: 40px;
     margin-left: 10px;
     color: white;
     background-color: rgb(5, 26, 91);
 }
-.option button:hover {
+#register .option button:hover {
     color: rgb(5, 26, 91);
     background-color: white;
 }
-h4{
-    color:white;
-}
-.links .link{
+#register .links .link{
     color:rgb(5, 26, 91);
     text-decoration: underline;
 }
-.links .link:hover{
+#register .links .link:hover{
     cursor: pointer;
     color:white;
 }
-#carta{
+#register #carta{
     margin-top: 10%;
 }
