@@ -120,8 +120,6 @@ class SignUp extends Component {
         );
     }
     postUser() {
-
-
         var data = {
             "loginUsuario": document.getElementById("name").value + " " + document.getElementById("lastName").value,
             "correo": document.getElementById("email").value,
@@ -131,20 +129,22 @@ class SignUp extends Component {
             "idioma": "ES"
         }
         console.log(data);
-        fetch("http://localhost:3001/usuario", {
+        fetch("/usuario", {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(data)
-        }).then(res => res.json())
+        }).then(res => ReactDOM.render(<LoginPage />, document.getElementById('root'))
+        )
             .catch(error => console.error('Error:', error))
             .then(response => console.log('Success:', response));
     }
-    goToLogin() {
+    goToLogin(){
         ReactDOM.render(<LoginPage />, document.getElementById('root'));
     }
+
 
 }
 

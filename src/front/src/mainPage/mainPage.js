@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './mainPage.css';
+import PlaylistList from '../playlistPage/PlaylistList';
+import ReactDOM from 'react-dom';
 
 
 class MainPage extends Component {
@@ -15,15 +17,15 @@ class MainPage extends Component {
               <div className="sidebar-heading"><i className="fas fa-book-open"></i> Your Library </div>
               <div className="sidebar-heading"><i className="fas fa-music"></i> Your Songs </div>
               <div className="sidebar-heading"><i className="fas fa-smile-wink"></i> Made For You </div>
-              <div className="sidebar-heading"><i className="fas fa-plus-circle"></i>>Create Playlist </div>
+              <div className="sidebar-heading"><i className="fas fa-plus-circle"></i>Create Playlist </div>
               <div className="sidebar-heading"><i className="fas fa-play-circle"></i> Currently Playing </div>
               <div className="sidebar-heading"><i className="fas fa-cat"></i> I'm Feeling Lucky</div>
               <div className="sidebar-heading"><i className="fas fa-cogs"></i> Settings</div>
               <div className="sidebar-heading"><i className="fas fa-user-circle"></i> Account</div>
             </div>
           </div>
-          <div className="background">
-            <div className="container" id="detail">
+          <div className="background" id="detailComponent">
+            <div className="container">
               <div className="header">
                 Home
           </div>
@@ -119,7 +121,7 @@ class MainPage extends Component {
                       Blah Blah Blah
                 </p>
                   </div>
-                  <div className="col-sm-3 clickable">
+                  <div className="col-sm-3 clickable" onClick={this.showPlayLists}>
                     <div className="temp-image">
 
                     </div>
@@ -138,6 +140,9 @@ class MainPage extends Component {
         </div>
       </div>
     );
+  }
+  showPlayLists() {
+    ReactDOM.render(<PlaylistList/>, document.getElementById("detailComponent"));
   }
 }
 export default MainPage;
