@@ -51,9 +51,8 @@ Visitar la carpeta \src\pruebasPostman
 
 #### Mockups:
 Los mockups se encuentran en la siguiente URI: 
-`https://app.moqups.com/zu1M310iwx/view
+`https://app.moqups.com/zu1M310iwx/view`
 
-`
 #### Front:
 A pesar de que la cantidad de tareas en el front es pequeña, se tiene una buena base para seguir trabajando. Lo último hace referencia a que a partir de las vistas y funciones que tenemos, implementar lo que hace falta no se demora más de un día.
 
