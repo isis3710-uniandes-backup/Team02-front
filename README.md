@@ -12,11 +12,18 @@ Utilizamos una base de datos en SQLite3.
 
 ### Para correrlo:
 
-1. Ingresar el comando: `$ cd src`
-2. Ingresar el comando: `$ npm install --save`
-3. Ingresar el comando: `$ npm start`
-4. Ir a http://localhost:3001/
+1. Ir a la carpeta src: `$ cd src`
+2. Instalar las dependencias: `$ npm install --save`
+3. Ir a la carpeta front: `cd front`
+4. Instalar las dependencias: `$ npm install --save`
+5. Verificar que compile correctamente: `npm start`
+6. Realizar un build de la aplicación: `npm run build`
+7. Volver a la carpeta del back: `cd ..`
+8. Compilar el proyecto: `npm start`
+9. Se despliega en: http://localhost:3001
+
 * No hay autenticación por lo que con solo presionar login se puede ir a la página principal de la aplicación.
+* La parte funcional se encuentra abajo a la derecha de la página principal
 
 ### Diagrama de clases:
 UML link: https://www.lucidchart.com/invitations/accept/e41fe50b-a024-4455-aa34-b2a98cb44e8e
@@ -48,10 +55,10 @@ Visitar la carpeta \src\pruebasPostman
 3. Ver las canciones de una playlist
 
 ### Consideraciones
-
 #### Mockups:
-Los mockups se encuentran en la siguiente URI: 
-`https://app.moqups.com/zu1M310iwx/view`
+Los Mockups se encuentran en la siguiente URI:
+
+https://app.moqups.com/zu1M310iwx/view
 
 #### Front:
 A pesar de que la cantidad de tareas en el front es pequeña, se tiene una buena base para seguir trabajando. Lo último hace referencia a que a partir de las vistas y funciones que tenemos, implementar lo que hace falta no se demora más de un día.
