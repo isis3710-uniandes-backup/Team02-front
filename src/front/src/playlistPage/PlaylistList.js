@@ -20,7 +20,7 @@ class PlaylistList extends Component {
                 <div className="header">
                     My PlayLists
                 </div>
-                <div className="content" id="playlist">
+                <div className="content" id="song">
                     <div className="row table-header">
                         <div className = "col-sm-1"></div>
                         <div className = "col-sm-4">Name</div>

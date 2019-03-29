@@ -1,0 +1,17 @@
+#song .table-item{
+    font-size: 25px;
+    border-bottom: 1px solid rgb(161, 161, 161);
+}
+#song .table-header{
+    border-bottom: 2px solid rgb(161, 161, 161);
+    font-size: 35px;
+}
+#song .table-item .function{
+    color: rgb(39, 39, 39);
+}
+#song .table-item:hover .function{
+    color: white;
+}  
+#song .table-item:hover{
+    background-color: rgb(20, 20, 20);
+}
