@@ -35,7 +35,7 @@ router.get('/login', function (req, res) {
     res.cookie(stateKey, state);
 
     // your application requests authorization
-    var scope = 'streaming user-read-birthdate user-read-private user-read-email playlist-read-private playlist-read-collaborative user-read-recently-played user-modify-playback-state';
+    var scope = 'streaming user-read-birthdate user-read-private user-read-email playlist-read-private playlist-read-collaborative user-read-recently-played user-modify-playback-state user-read-playback-state';
     res.redirect('https://accounts.spotify.com/authorize?' +
         querystring.stringify({
             response_type: 'code',
@@ -93,7 +93,7 @@ router.get('/callback', function (req, res) {
                 });
 
                 // we can also pass the token to the browser to make requests from there
-                res.redirect('/menu?'+querystring.stringify({
+                res.redirect('/menu?' + querystring.stringify({
                     access_token: access_token,
                     refresh_token: refresh_token
                 }));
@@ -108,31 +108,56 @@ router.get('/callback', function (req, res) {
     }
 });
 router.get('/menu', function (req, res) {
-    console.log(access_token);
     res.send(access_token);
 });
-router.get('/menu/playlists', function(req,res){
+router.get('/menu/playlists', function (req, res) {
     var options = {
         url: 'https://api.spotify.com/v1/me/playlists',
         headers: { 'Authorization': 'Bearer ' + access_token },
         json: true
     };
-    request.get(options, function(error, response, body){
+    request.get(options, function (error, response, body) {
         res.send(body);
     });
 });
-router.get('/menu/playlists/:idPlaylist/tracks', function(req, res){
+router.get('/menu/playlists/:idPlaylist/tracks', function (req, res) {
     var options = {
         url: `https://api.spotify.com/v1/playlists/${req.params.idPlaylist}`,
         headers: { 'Authorization': 'Bearer ' + access_token },
         json: true
     };
-    request.get(options, function(error, response, body){
-        console.log(body);
-        console.log(options);
+    request.get(options, function (error, response, body) {
         res.send(body);
     });
 });
+router.get('/play/tracks/:trackId', (req, res) => {
+    var trackId = req.params.trackId;
+    var deviceId = req.params.deviceId;
+    var optionsFirstRequest = {
+        url: `https://api.spotify.com/v1/me/player/devices`,
+        headers: { 'Authorization': 'Bearer ' + access_token },
+        json: true
+    };
+    request.get(optionsFirstRequest, function (error, response, body) {
+        for (let device of body.devices) {
+            if (device.name === 'Playlist Maker') {
+                var optionsPlayRequest = {
+                    url: `https://api.spotify.com/v1/me/player/play?device_id=${device.id}`,
+                    headers: { 'Authorization': 'Bearer ' + access_token },
+                    json: true,
+                    body: {'uris': [`spotify:track:${trackId}`]}
+                }
+                request.put(optionsPlayRequest, function(error, response, body){
+                    console.log(response);
+                    //console.log(error);
+                    //console.log(body);
+                    res.send("Playing");
+                });
+            }
+        }
+    });
+});
+
 router.get('/refresh_token', function (req, res) {
 
     // requesting access token from refresh token
