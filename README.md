@@ -4,6 +4,7 @@ La idea del proyecto es hacer una página de reproducción de música, y de publ
 
 ### Para correrlo:
 !!! Es necesario tener una cuenta de spotify. No hay necesidad de que sea premium
+!!! Es necesario acceder a la cuenta de spotify antes de probar las funciones.
 
 1. Ir a la carpeta src: `$ cd src`
 2. Instalar las dependencias: `$ npm install --save`
@@ -39,7 +40,8 @@ Utilizamos el API de spotify para obtener acceso a las diferentes canciones y ar
 Las rutas genereadas en react no despliegan el contenido de la página en el back, por lo que hay que correr ambos a la vez.
 
 Algunos navegadores tienen problema con CORS entre dos servidores diferentes. Si esto ocurre, instalar Moesif CORS en Chrome y encenderlo al realizar la prueba.
-
+#### Video:
+El link es: https://youtu.be/V9J5ONFWohE
 #### Mockups:
 Los Mockups se encuentran en la siguiente URI:
 
