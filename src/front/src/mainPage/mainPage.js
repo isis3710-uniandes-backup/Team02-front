@@ -24,12 +24,12 @@ class MainPage extends Component {
       });
   }
   changeSelected(clicked) {
-    if (mount) {
-      document.getElementById("home").classList.remove("selected");
-      document.getElementById("Your Library").classList.remove("selected");
+    // if (mount) {
+    //   document.getElementById("home").classList.remove("selected");
+    //   document.getElementById("Your Library").classList.remove("selected");
 
-      document.getElementById(clicked).classList.add("selected");
-    }
+    //   document.getElementById(clicked).classList.add("selected");
+    // }
   }
   render() {
     return (
