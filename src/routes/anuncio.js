@@ -2,6 +2,34 @@ var express = require('express');
 var router = express.Router();
 var sqlite3 = require('sqlite3').verbose();
 
+//MARIO WORK 3.1 START
+
+/* GET todos los anuncio . */
+router.get('/', function (req, res) {
+    var db = new sqlite3.Database('./db/projectDB.db', (err) => {
+        if (err) {
+            res.status(500).send(err.message);
+        }
+        else {
+            var id = +req.params.id;
+            db.all(`SELECT * FROM anuncio`, function (err, row) {
+                if (err) {
+                    res.status(500).send('El servidor no pudo procesar la solicitud')
+                }
+                else {
+                    if(row === undefined){
+                        res.status(404).send('El anuncio con URI' + req.originalUrl + ' no existe');
+                    }
+                    res.send(row);
+                }
+            });
+        }
+        db.close();
+    });
+});
+
+//MARIO WORK 3.1 END
+
 /* GET anuncio especifico. */
 router.get('/:id', function (req, res) {
     var db = new sqlite3.Database('./db/projectDB.db', (err) => {
@@ -34,8 +62,8 @@ router.post('/', function (req, res) {
         }
         else {
             var anuncio = req.body;
-            db.run(`INSERT INTO anuncio(nombre,empresa,video) VALUES(?,?,?)`,
-                [anuncio.nombre, anuncio.empresa, anuncio.video], function (err) {
+            db.run(`INSERT INTO anuncio (id, nombre,empresa,video) VALUES(?,?,?,?)`,
+                [anuncio.id, anuncio.nombre, anuncio.empresa, anuncio.video], function (err) {
 
                     if (err){
                          res.status(500).send('El servidor no pudo procesar la solicitud')
@@ -75,6 +103,8 @@ router.put('/:id', function (req, res) {
         db.close();
     });
 });
+
+
 /* DELETE anuncio. */
 router.delete('/:id', function (req, res) {
     var db = new sqlite3.Database('./db/projectDB.db', (err) => {

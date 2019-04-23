@@ -2,6 +2,30 @@ var express = require('express');
 var router = express.Router();
 var sqlite3 = require('sqlite3').verbose();
 
+/* GET todos las calificaciones. */
+router.get('/', function (req, res) {
+    var db = new sqlite3.Database('./db/projectDB.db', (err) => {
+        if (err) {
+            res.status(500).send(err.message);
+        }
+        else {
+            var id = +req.params.id;
+            db.all(`SELECT * FROM calificacion`, function (err, row) {
+                if (err) {
+                    res.status(500).send('El servidor no pudo procesar la solicitud')
+                }
+                else {
+                    if(row === undefined){
+                        res.status(404).send('El cancion con URI' + req.originalUrl + ' no existe');
+                    }
+                    res.send(row);
+                }
+            });
+        }
+        db.close();
+    });
+});
+
 /* GET calificacion especifico. */
 router.get('/:id', function (req, res) {
     var db = new sqlite3.Database('./db/projectDB.db', (err) => {

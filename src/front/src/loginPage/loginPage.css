@@ -24,18 +24,18 @@
 
 #login .card {
     width: 500px;
-    height: 470px;
+    height: 200px;
     margin-bottom: auto;
     background-color: rgba(129, 129, 129, 0.8) !important;
 }
 
 #login .card-header h1 {
     text-align: center;
-    color: rgb(5, 26, 91);
+    color: rgb(0, 0, 0);
 }
 
 #login .input-group-prepend span {
-    background-color: rgb(5, 26, 91);
+    background-color: rgb(0, 64, 255);
     width: 50px;
     color: white;
     border: 0 !important;
@@ -43,12 +43,12 @@
 
 #login .login_btn {
     color: white;
-    background-color: rgb(5, 26, 91);
+    background-color: rgb(0, 64, 255);
     width: 100%;
 }
 
 #login .login_btn:hover {
-    color: rgb(5, 26, 91);
+    color: rgb(0, 64, 255);
     background-color: white;
 }
 
@@ -56,7 +56,7 @@
     color: white;
 }
 #login .links a{
-    color: rgb(5, 26, 91);
+    color: rgb(0, 0, 0);
     margin-left: 5px;
 }
 
@@ -69,7 +69,7 @@
     font-size: 40px;
     margin-left: 10px;
     color: white;
-    background-color: rgb(5, 26, 91);
+    background-color: rgb(0, 64, 255);
 }
 #login .option button:hover {
     color: rgb(5, 26, 91);
@@ -77,13 +77,16 @@
 }
 
 #login #carta{
-    margin-top: 10%;
+    margin-top: 20%;
 }
 #login  .links .link{
-    color:rgb(5, 26, 91);
+    color:rgb(0, 64, 255);
     text-decoration: underline;
 }
 #login .links .link:hover{
     cursor: pointer;
     color:white;
+}
+#login .login_btn .sptIcon{
+    font-size: 20px;
 }

@@ -1,0 +1,26 @@
+#playlist .header {
+  min-width: 100%;
+  height: 7rem;
+  color: white;
+  font-size: 6rem
+}
+#playlist .content {
+  padding-top: 4rem;
+  font-size: 1.2rem;
+}
+
+#playlist .section-header {
+  border-bottom: 0.5px solid white;
+}
+#playlist .section-content{
+  font-size: 1rem;
+  color: rgb(165, 162, 162);
+}
+#playlist img{
+  height: 225px;
+  width: 225px;
+  
+}
+#playlist .clickable:hover{
+  cursor: pointer;
+}

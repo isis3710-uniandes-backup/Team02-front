@@ -84,6 +84,30 @@ router.get('/:id/canciones', function (req, res) {
 
 //MARIO WORK 2.0 END
 
+/* GET calificaciones de album especifico. */
+router.get('/:id/calificaciones', function (req, res) {
+    var db = new sqlite3.Database('./db/projectDB.db', (err) => {
+        if (err) {
+            res.status(500).send(err.message);
+        }
+        else {
+            var id = +req.params.id;
+            db.all(`SELECT  id, calificacion, comentario FROM calificacion, albumCalificacion WHERE albumCalificacion.idCalificacion == calificacion.id AND albumCalificacion.idAlbum = ?`,[id], function (err, row) {
+                if (err) {
+                    res.status(500).send('El servidor no pudo procesar la solicitud')
+                }
+                else {
+                    if(row === undefined){
+                        res.status(404).send('El album con URI' + req.originalUrl + ' no existe');
+                    }
+                    res.send(row);
+                }
+            });
+        }
+        db.close();
+    });
+});
+
 
 /* POST album. */
 router.post('/', function (req, res) {
@@ -103,6 +127,32 @@ router.post('/', function (req, res) {
                     else{
                         var uri = req.originalUrl + '/' + this.lastID;
                         res.send('Creación de una nueva album con URI ' + uri);
+                    }
+
+                });
+        }
+        db.close();
+    });
+});
+
+/* POST asociar calificacion a un album. */
+router.post('/:idAlbum/asociarCalificacion/:idCalificacion', function (req, res) {
+    var db = new sqlite3.Database('./db/projectDB.db', (err) => {
+        if (err) {
+            res.status(500).send(err.message);
+        }
+        else {
+            var idAlbum = +req.params.idAlbum;
+            var idCalificacion = +req.params.idCalificacion;
+            db.run(`INSERT INTO albumCalificacion (idAlbum,idCalificacion) VALUES(?,?)`,
+                [idAlbum, idCalificacion], function (err) {
+
+                    if (err){
+                         res.status(500).send('El servidor no pudo procesar la solicitud')
+                    }
+                    else{
+                        var uri = req.originalUrl + '/' + this.lastID;
+                        res.send('Añadir calificacion a album con URI ' + uri);
                     }
 
                 });

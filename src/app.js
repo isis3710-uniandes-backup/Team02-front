@@ -6,23 +6,23 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-//MARIO WORK START
-var generoRouter = require('./routes/genero');
-var anuncioRouter = require('./routes/anuncio');
-var radioRouter = require('./routes/radio');
-//MARIO WORK END
+// //MARIO WORK START
+// var generoRouter = require('./routes/genero');
+// var anuncioRouter = require('./routes/anuncio');
+// var radioRouter = require('./routes/radio');
+// //MARIO WORK END
 
-//NICOLAS WORK START
-var cancionRouter = require('./routes/cancion');
-var albumRouter = require('./routes/album');
-var artistaRouter = require('./routes/artista');
-//NICOLAS WORK END
+// //NICOLAS WORK START
+// var cancionRouter = require('./routes/cancion');
+// var albumRouter = require('./routes/album');
+// var artistaRouter = require('./routes/artista');
+// //NICOLAS WORK END
 
-//JAVIER WORK START
+// //JAVIER WORK START
 var usuarioRouter = require('./routes/usuario');
-var playlistRouter = require('./routes/playlist');
-var calificacionRouter = require('./routes/calificacion');
-//JAVIER WORK END
+// var playlistRouter = require('./routes/playlist');
+// var calificacionRouter = require('./routes/calificacion');
+// //JAVIER WORK END
 
 
 var app = express();
@@ -40,24 +40,24 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'front/build')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-//MARIO WORK START
-app.use('/genero',generoRouter);
-app.use('/anuncio',anuncioRouter);
-app.use('/radio',radioRouter);
-//MARIO WORK END
+// app.use('/users', usersRouter);
+// //MARIO WORK START
+// app.use('/genero',generoRouter);
+// app.use('/anuncio',anuncioRouter);
+// app.use('/radio',radioRouter);
+// //MARIO WORK END
 
-//NICOLAS WORK START
-app.use('/cancion',cancionRouter);
-app.use('/album',albumRouter);
-app.use('/artista',artistaRouter);
-//NICOLAS WORK END
+// //NICOLAS WORK START
+// app.use('/logged/cancion',cancionRouter);
+// app.use('/logged/album',albumRouter);
+// app.use('/logged/artista',artistaRouter);
+// //NICOLAS WORK END
 
-//JAVIER WORK START
-app.use('/usuario',usuarioRouter);
-app.use('/playlist',playlistRouter);
-app.use('/calificacion',calificacionRouter);
-//JAVIER WORK END
+// //JAVIER WORK START
+ app.use('/',usuarioRouter);
+// app.use('/logged/playlist',playlistRouter);
+// app.use('/logged/calificacion',calificacionRouter);
+// //JAVIER WORK END
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

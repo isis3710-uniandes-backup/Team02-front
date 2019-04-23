@@ -54,6 +54,59 @@ router.get('/random', function (req, res) {
 });
 //MARIO WORK 2.2 END
 
+//MARIO WORK 2.0 START
+
+/* GET anuncios de una cancion */
+router.get('/:id/anuncios', function (req, res) {
+    var db = new sqlite3.Database('./db/projectDB.db', (err) => {
+        if (err) {
+            res.status(500).send(err.message);
+        }
+        else {
+            var id = +req.params.id;
+            db.all(`SELECT  id, empresa, nombre, video FROM anuncio, cancionAnuncio WHERE cancionAnuncio.idAnuncio == anuncio.id AND cancionAnuncio.idCancion = ?`,[id], function (err, row) {
+                if (err) {
+                    res.status(500).send('El servidor no pudo procesar la solicitud')
+                }
+                else {
+                    if(row === undefined){
+                        res.status(404).send('El playlist con URI' + req.originalUrl + ' no existe');
+                    }
+                    res.send(row);
+                }
+            });
+        }
+        db.close();
+    });
+});
+
+
+/* GET genero de una cancion */
+router.get('/:id/genero', function (req, res) {
+    var db = new sqlite3.Database('./db/projectDB.db', (err) => {
+        if (err) {
+            res.status(500).send(err.message);
+        }
+        else {
+            var id = +req.params.id;
+            db.all(`SELECT  id, nombre, imagen FROM genero, cancionGenero WHERE cancionGenero.idGenero == genero.id AND cancionGenero.idCancion = ?`,[id], function (err, row) {
+                if (err) {
+                    res.status(500).send('El servidor no pudo procesar la solicitud')
+                }
+                else {
+                    if(row === undefined){
+                        res.status(404).send('El genero con URI' + req.originalUrl + ' no existe');
+                    }
+                    res.send(row);
+                }
+            });
+        }
+        db.close();
+    });
+});
+
+//MARIO WORK 2.0 END
+
 
 //MARIO WORK 2.1 START
 
@@ -165,6 +218,62 @@ router.post('/:idCancion/anadiraplaylist/:idPlaylist', function (req, res) {
 });
 
 //MARIO WORK 2.0 END
+
+//MARIO WORK 3.1 START
+
+/* POST añadir anuncio a una canción. */
+router.post('/:idCancion/anadiranuncio/:idAnuncio', function (req, res) {
+    var db = new sqlite3.Database('./db/projectDB.db', (err) => {
+        if (err) {
+            res.status(500).send(err.message);
+        }
+        else {
+            var idCancion = +req.params.idCancion;
+            var idAnuncio = +req.params.idAnuncio;
+            db.run(`INSERT INTO cancionAnuncio (idCancion,idAnuncio) VALUES(?,?)`,
+                [idCancion, idAnuncio], function (err) {
+
+                    if (err){
+                         res.status(500).send('El servidor no pudo procesar la solicitud')
+                    }
+                    else{
+                        var uri = req.originalUrl + '/' + this.lastID;
+                        res.send('Añadido un anuncio a la cancion con URI ' + uri);
+                    }
+
+                });
+        }
+        db.close();
+    });
+});
+
+
+/* POST asociar cancion con genero */
+router.post('/:idCancion/asociarcongenero/:idGenero', function (req, res) {
+    var db = new sqlite3.Database('./db/projectDB.db', (err) => {
+        if (err) {
+            res.status(500).send(err.message);
+        }
+        else {
+            var idCancion = +req.params.idCancion;
+            var idGenero = +req.params.idGenero;
+            db.run(`INSERT INTO cancionGenero (idCancion,idGenero) VALUES(?,?)`,
+                [idCancion, idGenero], function (err) {
+
+                    if (err){
+                         res.status(500).send('El servidor no pudo procesar la solicitud')
+                    }
+                    else{
+                        var uri = req.originalUrl + '/' + this.lastID;
+                        res.send('Asociada cancion con genero con la URI  ' + uri);
+                    }
+
+                });
+        }
+        db.close();
+    });
+});
+//MARIO WORK 3.1 END
 
 
 /* PUT cancion. */

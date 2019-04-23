@@ -2,52 +2,29 @@
 ### Descripción:
 La idea del proyecto es hacer una página de reproducción de música, y de publicación de contenido musical. Es algo así como juntar Spotify y Soundcloud. Sin embargo, esperamos implementar un mejor sistema de recomendaciones y de creación de playlists que el de Spotify, y permitirle a los nuevos artistas obtener dinero por la reproducción de sus canciones.
 
-### Consideraciones:
-
-No se adjuntan archivos JSON de los recursos, puesto que se obtienen y persisten en la base de datos.
-
-En esta entrega no se han hecho las relaciones en el back-end.
-
-Utilizamos una base de datos en SQLite3.
-
 ### Para correrlo:
+!!! Es necesario tener una cuenta de spotify. No hay necesidad de que sea premium
 
 1. Ir a la carpeta src: `$ cd src`
 2. Instalar las dependencias: `$ npm install --save`
 3. Ir a la carpeta front: `cd front`
 4. Instalar las dependencias: `$ npm install --save`
-5. Verificar que compile correctamente: `npm start`
-6. Realizar un build de la aplicación: `npm run build`
-7. Volver a la carpeta del back: `cd ..`
-8. Compilar el proyecto: `npm start`
-9. Se despliega en: http://localhost:3001
+5. Crear un build del api: `npm run build`
+6. Volver a la carpeta del servidor: `cd ..`
+7. Correr el servidor `npm start`
+  * Si dice que falta cors ejecutar : `npm install cors --save` e intentar nuevamente
+8. Ir a la url: http://localhost:3001/ y hacer el login para obtener el token de acceso.
+9. Ir a la carpeta del front: `cd front`
+10. Compilar el proyecto: `npm start`
+11. Ir a la url: http://localhost:3000/menu
 
-* No hay autenticación por lo que con solo presionar login se puede ir a la página principal de la aplicación.
 * La parte funcional se encuentra abajo a la derecha de la página principal
+* El menu de inicio aún no tiene recomendaciones, por lo que no funciona. Funciona la parte de My Library (Mi Libreria), donde se pueden ver las playlists y canciones del usuario.
+* Hay un conflicto entre react y el reproductor de spotify por lo que no reproduce canciones, sin embargo ya hace streaming de lo que suena en spotify. Lo último se puede probar reproduciendo una canción y seleccionando un dispositivo de reproducción diferente al actual (Dice que se necesita premium, pero no se ha verificado totalmente).
 
 ### Diagrama de clases:
 UML link: https://www.lucidchart.com/invitations/accept/e41fe50b-a024-4455-aa34-b2a98cb44e8e
 Diagrama Relacional: Aún pendiente de decisiones de diseño
-
-### URIs de relaciones funcionando y listas para probar:
-
--Asociar una canción a una playlist
-http://localhost:3001/cancion/1/anadiraplaylist/1
-
--Obtener las playlists de un usuario
-http://localhost:3001/usuario/2/playlists
-
--Obtener las canciones de una playlist
-http://localhost:3001/playlist/1/canciones
-
--Obtener los albumes de un artista
-http://localhost:3001/artista/2/albumes
-
--Obtener las canciones de un album
-http://localhost:3001/album/1/canciones
-
-### Para ver otras UEIs funcionando:
-Visitar la carpeta \src\pruebasPostman
 
 ### Tareas que funcionan correctamente conectando back y front:
 1. Registrar una nueva cuenta
@@ -55,14 +32,22 @@ Visitar la carpeta \src\pruebasPostman
 3. Ver las canciones de una playlist
 
 ### Consideraciones
+
+#### General:
+Utilizamos el API de spotify para obtener acceso a las diferentes canciones y artistas. Sin embargo, solo pueden ingresar aquellos usuarios con cuenta en spotify.
+
+Las rutas genereadas en react no despliegan el contenido de la página en el back, por lo que hay que correr ambos a la vez.
+
+Algunos navegadores tienen problema con CORS entre dos servidores diferentes. Si esto ocurre, instalar Moesif CORS en Chrome y encenderlo al realizar la prueba.
+
 #### Mockups:
 Los Mockups se encuentran en la siguiente URI:
 
 https://app.moqups.com/zu1M310iwx/view
 
 #### Front:
-A pesar de que la cantidad de tareas en el front es pequeña, se tiene una buena base para seguir trabajando. Lo último hace referencia a que a partir de las vistas y funciones que tenemos, implementar lo que hace falta no se demora más de un día.
+Hace falta que el reproductor haga streaming de la canción seleccionada. Las vistas restantes son similares, solo hacen una petición distinta al back.
 
-Por otra parte, se trabajo cambiando el contenido del root sin hacer enrutamiento en el frontend. La razón principal es porque hubo un cruce entre rutas del front y rutas del back, lo que arrojaba un error 404 al intentar acceder a una ruta del front luego de hacer el built.
+#### Back:
+Hace falta la parte de hacer recomendaciones al usuario. Spotify ya brinda una buena base para ello.
 
-Aún no hay autenticación implementada.
