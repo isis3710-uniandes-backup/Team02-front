@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './loginPage.css';
-import ReactDOM from 'react-dom';
-import MainPage from '../mainPage/mainPage';
-import { Link } from "react-router-dom";
 import { FormattedMessage } from 'react-intl';
 
 
 class Login extends Component {
+  constructor(props){
+    super();
+  }
   render() {
     return (
       <div id="login">
@@ -18,9 +18,7 @@ class Login extends Component {
                   <h1><b> <FormattedMessage id="Sign In" /></b></h1>
                 </div>
                 <div className="card-body">
-
                   <a className="styledLink" href="/login"><span><button  className="btn float-right login_btn"><i className="fab fa-spotify sptIcon"> <FormattedMessage id="Connect using spotify" /></i></button></span></a>
-
                   <br></br>
                   <br></br>
                   <div className="d-flex justify-content-center links">
@@ -36,6 +34,9 @@ class Login extends Component {
   }
   redirectToSpotify(){
     window.open('https://www.spotify.com/', '_blank');
+  }
+  login(){
+    
   }
 }
 

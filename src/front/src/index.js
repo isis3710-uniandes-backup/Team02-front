@@ -22,7 +22,7 @@ if (userLang === 'es-ES') {
             <IntlProvider locale="es-ES" messages={localeEsMessages}>
                 <Router>
                     <Route exact path="/" component={LoginPage} />
-                    <Route path="/menu/:accessToken" component={MainPage} />
+                    <Route exact path="/menu/:accessToken" component={MainPage} />
                 </Router>
             </IntlProvider>);
     }
@@ -39,7 +39,7 @@ else {
             <IntlProvider locale="en" messages={localeEnMessages}>
                 <Router>
                     <Route exact path="/" component={LoginPage} />
-                    <Route path="/menu" component={MainPage} />
+                    <Route path="/menu/:accessToken" component={MainPage} />
                 </Router>
             </IntlProvider>);
     }

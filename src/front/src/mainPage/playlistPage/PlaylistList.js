@@ -4,18 +4,22 @@ import './PlayList.css';
 import { FormattedMessage } from 'react-intl';
 
 class PlaylistList extends Component {
-    state = {
-        "playlists": []
-    }
-    componentDidMount() {
-        fetch('http://localhost:3001/menu/playlists')
+    constructor(props)
+    {
+        super();
+        var accessToken = props.match.params.accessToken;
+        this.state = {
+            "playlists":[],
+            "accessToken" : accessToken
+        }
+        fetch('http://localhost:3001/menu/'+accessToken +'/playlists')
         .then((response) => {
             response.json().then((data) => {
-                console.log(data.items);
                 this.setState({ "playlists": data.items });
             });
         });
     }
+
     render() {
         return (
             <div className="container" id = "playlist">
@@ -24,7 +28,7 @@ class PlaylistList extends Component {
                 </div>
                 <div className="content" id="song">
                 <div className="row">
-                    {this.state.playlists.map((e, i) => <PlayListDetail key={i} playlist={e} />)}
+                    {this.state.playlists.map((e, i) => <PlayListDetail key={i} playlist={e} accessToken = {this.state.accessToken} />)}
                 </div>
                 </div>
             </div>

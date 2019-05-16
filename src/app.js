@@ -5,25 +5,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-// //MARIO WORK START
-// var generoRouter = require('./routes/genero');
-// var anuncioRouter = require('./routes/anuncio');
-// var radioRouter = require('./routes/radio');
-// //MARIO WORK END
-
-// //NICOLAS WORK START
-// var cancionRouter = require('./routes/cancion');
-// var albumRouter = require('./routes/album');
-// var artistaRouter = require('./routes/artista');
-// //NICOLAS WORK END
-
-// //JAVIER WORK START
-var usuarioRouter = require('./routes/usuario');
-// var playlistRouter = require('./routes/playlist');
-// var calificacionRouter = require('./routes/calificacion');
-// //JAVIER WORK END
-
 
 var app = express();
 
@@ -54,7 +35,7 @@ app.use('/', indexRouter);
 // //NICOLAS WORK END
 
 // //JAVIER WORK START
- app.use('/',usuarioRouter);
+ //app.use('/',usuarioRouter);
 // app.use('/logged/playlist',playlistRouter);
 // app.use('/logged/calificacion',calificacionRouter);
 // //JAVIER WORK END

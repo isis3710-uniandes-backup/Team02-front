@@ -6,12 +6,11 @@ export default class Song extends Component {
     "name": this.props.song.track.name,
     "artist": this.props.song.track.artists[0].name,
     "album": this.props.song.track.album.name,
-    "uri": this.props.song.track.uri
-  }
-  componentDidMount(){
-    console.log(this.props);
+    "uri": this.props.song.track.uri,
+    "accessToken" : this.props.accessToken
   }
   render() {
+    console.log(this.props);
     return (
       <div className="row table-item ">
         <div className="col-sm-1 function clickable" onClick={() => this.playSong(this.state.uri)}><center><i className="fas fa-play-circle"></i></center></div>
@@ -22,7 +21,7 @@ export default class Song extends Component {
       </div>)
   }
   playSong(uri) {
-    fetch(`http://localhost:3001/play/tracks/${this.props.song.track.id}`)
+    fetch(`http://localhost:3001/play/${this.state.accessToken}/tracks/${this.props.song.track.id}`)
     .then((response) => {
       response.text().then((text) => {
         console.log(text);
