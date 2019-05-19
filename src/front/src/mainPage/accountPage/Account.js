@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './PlayList.css';
 import { FormattedMessage } from 'react-intl';
 
 class Account extends Component {
