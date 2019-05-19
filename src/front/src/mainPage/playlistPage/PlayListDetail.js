@@ -17,14 +17,17 @@ class PlayListDetail extends Component {
     }
    
     render() {
+        var nombre = this.state.nombre;
+        if(this.state.nombre.length >= 24){
+            nombre = nombre.substring(0,18)+"...";
+        }
         return (
             <div className="col-sm-3 clickable">
                 <a className="styledLink" href={"/menu/" + this.state.accessToken+"/playlist/" + this.state.id + "/tracks"}>
                     <div className="row">
-                        <img className="img-responsive center-block" src={this.state.image}></img>
+                            <img className="img-center center-block" src={this.state.image}></img>
                     </div>
-                    <h4>{this.state.nombre}</h4>
-                    <p className="section-content"> <FormattedMessage id="Created By:" /> {this.state.creador}</p>
+                    <div className = "section-header">{nombre}</div>
                 </a>
             </div>)
     }

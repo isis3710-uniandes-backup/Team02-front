@@ -4,14 +4,14 @@ import { Route } from "react-router-dom";
 import PlaylistList from './playlistPage/PlaylistList';
 import { FormattedMessage } from 'react-intl';
 import SongList from './songPage/songList';
+import CreatePage from './playlistPage/CreatePage';
 
 
-var mount = false;
 class MainPage extends Component {
   constructor(props) {
     super();
     this.state = {
-      "accessToken" : props.match.params.accessToken
+      "accessToken": props.match.params.accessToken
     }
 
   }
@@ -25,15 +25,24 @@ class MainPage extends Component {
           <div id="sidebar-wrapper">
             <div className="list-group list-group-flush">
               <a className="styledLink" href={`/menu/${this.state.accessToken}`} onClick={() => { this.changeSelected("home") }}><div className="sidebar-heading selected" id="home"><i className="fas fa-home"></i> <FormattedMessage id="Home" />  </div></a>
-              <div className="sidebar-heading"><i className="fas fa-smile-wink"></i> <FormattedMessage id="Made For You" /> </div>
-              <div className="sidebar-heading"><i className="fas fa-plus-circle"></i> <FormattedMessage id="Create Playlist" /> </div>
+              <a className="styledLink" href={`/menu/${this.state.accessToken}/create`} onClick={() => { this.changeSelected("create") }}><div className="sidebar-heading" id="create"><i className="fas fa-plus-circle"></i> <FormattedMessage id="Create Playlist" />  </div></a>
               <div className="sidebar-heading"><i className="fas fa-play-circle"></i> <FormattedMessage id="I'm Feeling Lucky" /></div>
               <div className="sidebar-heading"><i className="fas fa-user-circle"></i> <FormattedMessage id="Account" /> </div>
+              <div className= "empty"></div>
+              <div className= "empty"></div>
+              <div className= "empty"></div>
+              <div className= "empty"></div>
+              <div className= "empty"></div>
+              <div className= "empty"></div>
+              <div className= "empty"></div>
+              <div className = "test"><p>Ad</p></div>
             </div>
+         
           </div>
           <div className="background">
             <Route exact path="/menu/:accessToken" component={PlaylistList} />
             <Route exact path="/menu/:accessToken/playlist/:idPlaylist/tracks" component={SongList} />
+            <Route exact path="/menu/:accessToken/create" component={CreatePage} />
           </div>
         </div>
       </div >

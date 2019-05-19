@@ -10,7 +10,6 @@ export default class Song extends Component {
     "accessToken" : this.props.accessToken
   }
   render() {
-    console.log(this.props);
     return (
       <div className="row table-item ">
         <div className="col-sm-1 function clickable" onClick={() => this.playSong(this.state.uri)}><center><i className="fas fa-play-circle"></i></center></div>

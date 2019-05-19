@@ -6,7 +6,6 @@ import { FormattedMessage } from 'react-intl';
 
 export default class SongList extends Component {
     constructor(props) {
-        console.log(props);
         super();
         var accessToken = props.match.params.accessToken;
         this.state = {

@@ -3,13 +3,11 @@ var router = express.Router();
 var request = require('request'); // "Request" library
 var cors = require('cors');
 var querystring = require('querystring');
-var cookieParser = require('cookie-parser');
 
 var client_id = '71c72374958f467eb800a9c42c35fc98'; // Your client id
 var client_secret = '18c278187b574429bc40bce632093364';
 var redirect_uri = 'http://localhost:3001/callback';
 
-var access_token = '';
 const corsOptions = {
     origin: 'http://localhost:3000'
 }
@@ -26,14 +24,18 @@ var generateRandomString = function (length) {
     }
     return text;
 };
-
+router.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 router.get('/login', cors(corsOptions), function (req, res) {
 
     var state = generateRandomString(16);
     res.cookie(stateKey, state);
 
     // your application requests authorization
-    var scope = 'streaming user-read-birthdate user-read-private user-read-email playlist-read-private playlist-read-collaborative user-read-recently-played user-modify-playback-state user-read-playback-state';
+    var scope = 'streaming user-read-birthdate user-read-private user-read-email  playlist-modify-public playlist-modify-private playlist-read-private playlist-read-collaborative user-read-recently-played user-modify-playback-state user-read-playback-state';
     res.redirect('https://accounts.spotify.com/authorize?' +
         querystring.stringify({
             response_type: 'code',
@@ -95,7 +97,6 @@ router.get('/menu/:accesstoken/playlists', cors(corsOptions), function (req, res
         headers: { 'Authorization': 'Bearer ' + req.params.accesstoken },
         json: true
     };
-    console.log(req.body);
     request.get(options, function (error, response, body) {
         res.send(body);
     });
@@ -157,6 +158,33 @@ router.get('/refresh_token', cors(corsOptions), function (req, res) {
         }
     });
 });
+
+router.post('/menu/:accesstoken/create', cors(corsOptions), function (req, res) {
+    var accesstoken = req.params.accesstoken;
+    var getUserOptions = {
+        url: `https://api.spotify.com/v1/me`,
+        headers: { 'Authorization': 'Bearer ' + accesstoken },
+        json: true
+    }
+    request.get(getUserOptions, function (error, response, body){
+        var postOptions = {
+            url: `https://api.spotify.com/v1/users/${body.id}/playlists`,
+            headers: { 'Authorization': 'Bearer ' + accesstoken },
+            json: true,
+            body: req.body
+        }
+        request.post(postOptions, function(error, response, body){
+            if(response.statusCode != 201){
+                res.send("Missing Field");
+            }
+            else{
+                res.send(body.id);
+            }
+        });
+    });
+ 
+});
+
 var stateKey = 'spotify_auth_state';
 
 
