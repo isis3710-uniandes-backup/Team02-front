@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import './mainPage.css';
 import { Route } from "react-router-dom";
 import PlaylistList from './playlistPage/PlaylistList';
-import Account from './playlistPage/Account';
+import Account from './accountPage/Account';
 import { FormattedMessage } from 'react-intl';
 import SongList from './songPage/songList';
-import CreatePage from './playlistPage/CreatePage';
+import CreatePage from './createPage/CreatePage';
 
 
 class MainPage extends Component {
