@@ -24,9 +24,7 @@ class Account extends Component {
             })
             .then((response) => {
                 response.json().then((data) => {
-                   
-                 //   this.setState({ "songs": data.tracks.items });
-                   
+                    this.setState({ "songs": data.items });
                 });
 
             }).catch((error) => {
@@ -42,10 +40,10 @@ class Account extends Component {
                     <FormattedMessage id="Account" />
                 </div>
 
-                
+
                 <div className="content">
-                <h4>
-                    Top tracks
+                    <h4>
+                        Top tracks
                 </h4>
                     <div className="row table-header">
                         <div className="col-sm-1"></div>
@@ -55,9 +53,7 @@ class Account extends Component {
                         <div className="col-sm-1"></div>
                     </div>
                 </div>
-               {
-                 //  this.state.songs.map((e, i) => <TopSongsDetail key={i} song={e} accessToken={accessToken} />)}
-               }
+                {this.state.songs.map((e, i) => <TopSongsDetail key={i} song={e} accessToken={accessToken} />)}
             </div>
         );
     }
