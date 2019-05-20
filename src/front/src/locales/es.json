@@ -22,6 +22,17 @@
     "Artist": "Artista",
     "Album": "Album",
     "My PlayLists": "Mis Listas",
-    "Created By: ": "Creado Por: "
+    "Created By: ": "Creado Por: ",
+    "Recently played": "Recien escuchadas",
+    "Top artists": "Tus Artistas Top",
+    "Top tracks": "Tus Canciones Top",
+    "Popularity": "Popularidad",
+    "Uri": "Uri",
+    "User profile": "Perfil de usuario",
+    "birthdate": "Fecha de nacimiento: ",
+    "email": "Correo electrónico: ",
+    "followers": "Seguidores: ",
+    "id": "Id: ",
+    "type": "Tipo: "
 
 }

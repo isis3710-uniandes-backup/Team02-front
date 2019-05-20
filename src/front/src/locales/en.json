@@ -1,9 +1,9 @@
 {
     "Home": "Home",
-	"Discover": "Discover",
-	"Search": "Search",
-	"Your Library": "Your Library",
-	"Your Songs": "Your Songs",
+    "Discover": "Discover",
+    "Search": "Search",
+    "Your Library": "Your Library",
+    "Your Songs": "Your Songs",
     "Made For You": "Made For You",
     "Create Playlist": "Create Playlist",
     "I'm Feeling Lucky": "I'm Feeling Lucky",
@@ -22,6 +22,16 @@
     "Artist": "Artist",
     "Album": "Album",
     "My PlayLists": "My PlayLists",
-    "Created By:": "Created By:"
-
+    "Created By:": "Created By:",
+    "Recently played": "Recently played",
+    "Top artists": "Top artists",
+    "Top tracks": "Top tracks",
+    "Popularity": "Popularity",
+    "Uri": "Uri",
+    "User profile": "User profile",
+    "birthdate": "Birthdate: ",
+    "email": "Email: ",
+    "followers": "Followers: ",
+    "id": "Id: ",
+    "type": "Type: "
 }

@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
-import TopSongsDetail from './TopSongsDetail';
-import PlayListDetail from '../playlistPage/PlayListDetail';
+import TopArtistsDetail from './TopArtistsDetail';
 import '../songPage/song.css';
-import Song from '../songPage/song';
 
-class Account extends Component {
+class TopArtists extends Component {
     constructor(props) {
         super();
         var accessToken = props.match.params.accessToken;
         this.state = {
-            "songs": [],
+            "artists": [],
             "accessToken": accessToken
         }
 
-        fetch('https://api.spotify.com/v1/me/top/tracks?limit=5',
+        fetch('https://api.spotify.com/v1/me/top/artists?time_range=medium_term&limit=10&offset=5',
             {
                 method: 'GET',
                 headers: {
@@ -25,7 +23,7 @@ class Account extends Component {
             .then((response) => {
                 response.json().then((data) => {
                     console.log(data);
-                    this.setState({ "songs": data.items });
+                    this.setState({ "artists": data.items });
                 });
 
             }).catch((error) => {
@@ -36,9 +34,9 @@ class Account extends Component {
     render() {
         var accessToken = this.state.accessToken;
         return (
-            <div className="container" id="account">
+            <div className="container" id="TopArtists">
                 <div className="header">
-                    <FormattedMessage id="Recently played" />
+                    <FormattedMessage id="Top artists" />
                 </div>
 
 
@@ -46,15 +44,15 @@ class Account extends Component {
                     
                     <div className="row table-header">
                         <div className="col-sm-1"></div>
-                        <div className="col-sm-5"><FormattedMessage id="Name" /></div>
-                        <div className="col-sm-2"><FormattedMessage id="Artist" /></div>
-                        <div className="col-sm-3"><FormattedMessage id="Album" /></div>
+                        <div className="col-sm-4"><FormattedMessage id="Name" /></div>
+                        <div className="col-sm-2"><FormattedMessage id="Popularity" /></div>
+                        <div className="col-sm-4"><FormattedMessage id="Uri" /></div>
                         <div className="col-sm-1"></div>
                     </div>
                 </div>
-                {this.state.songs.map((e, i) => <TopSongsDetail key={i} track={e} accessToken={accessToken} />)}
+                {this.state.artists.map((e, i) => <TopArtistsDetail key={i} track={e} accessToken={accessToken} />)}
             </div>
         );
     }
 }
-export default Account;
+export default TopArtists;
