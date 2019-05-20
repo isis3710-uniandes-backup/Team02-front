@@ -16,14 +16,7 @@ class UserProfile extends Component {
             "image": ""
         }
 
-        fetch('https://api.spotify.com/v1/me',
-            {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + accessToken,
-                },
-            })
+        fetch('http://localhost:3001/menu/'+accessToken+'/userProfile')
             .then((response) => {
                 response.json().then((data) => {
                     this.setState({ "name": data.display_name });
@@ -48,7 +41,7 @@ class UserProfile extends Component {
                 <div className="row">
                     <div className="col-sm-4"></div>
                     <div className="col-sm-4">
-                        <img className = "img-center center-block" src={this.state.image} />
+                        <img className="img-center center-block" src={this.state.image} />
                         <div className="name">
                             {this.state.name}
                         </div>
@@ -59,13 +52,11 @@ class UserProfile extends Component {
                     <div className="row">
                         <div className="col-sm-1"></div>
                         <div className="col-sm-5">
+                            <div className="section-header">
+                                Top 5 Songs
+                            </div>
                         </div>
                         <div className="col-sm-5">
-                            <div ><FormattedMessage id="username" className="variable" />{this.state.username}</div>
-                            <div ><FormattedMessage id="Name" className="variable" /> : {this.state.name}</div>
-                            <div ><FormattedMessage id="email" className="variable" /> : {this.state.email}</div>
-                            <div ><FormattedMessage id="followers" className="variable" /> : {this.state.followers.total}</div>
-                            <div ><FormattedMessage id="type" className="variable" /> {this.state.type}</div>
                         </div>
                         <div className="col-sm-1"></div>
                     </div>

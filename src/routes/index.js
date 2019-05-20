@@ -237,6 +237,18 @@ router.post('/menu/:accesstoken/create', cors(corsOptions), function (req, res) 
     });
 
 });
+router.get('/menu/:accesstoken/userProfile', cors(corsOptions), function(req,res){
+    var accesstoken = req.params.accesstoken;
+    var userOptions = {
+        url: `https://api.spotify.com/v1/me`,
+        headers: { 'Authorization': 'Bearer ' + accesstoken },
+        json: true
+    };
+    request.get(userOptions, function(error, response,body){
+        res.send(body);
+    })
+    
+});
 var stateKey = 'spotify_auth_state';
 
 
