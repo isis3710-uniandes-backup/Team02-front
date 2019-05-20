@@ -53,8 +53,6 @@ class MainPage extends Component {
               <Route exact path="/menu/:accessToken" component={PlaylistList} />
               <Route exact path="/menu/:accessToken/playlist/:idPlaylist/tracks" component={SongList} />
               <Route exact path="/menu/:accessToken/create" component={CreatePage} />
-              <Route exact path="/menu/:accessToken/account" component={Account} />
-              <Route exact path="/menu/:accessToken/TopArtists" component={TopArtists} />
               <Route exact path="/menu/:accessToken/UserProfile" component={UserProfile} />
             </div>
           </div>

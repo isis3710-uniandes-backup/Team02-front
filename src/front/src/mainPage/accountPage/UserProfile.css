@@ -1,6 +1,5 @@
-#account img{
+#account .img-header{
     padding-block-start: 10px;
-    border-radius: 50%;
     margin: 0 auto;
     width: 100%;
 }
@@ -10,4 +9,18 @@
 }
 #account .section-header{
     font-size: 2rem;
+    text-decoration: underline;
+    text-align: center;
+}
+#account .img-detail{
+    width: 64px;
+    height: 64px;
+}
+#account .songInfo{
+    padding-block-start: 10px;
+    border-bottom: 1px solid rgb(128,128,128);
+    padding-block-end: 10px;
+}
+#account .songArtist{
+    font-size: 15px;
 }

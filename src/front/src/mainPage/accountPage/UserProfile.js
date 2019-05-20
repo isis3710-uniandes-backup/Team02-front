@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import './UserProfile.css';
+import Account from './Account';
 
 class UserProfile extends Component {
     constructor(props) {
@@ -35,13 +36,13 @@ class UserProfile extends Component {
     }
 
     render() {
-        var accessToken = this.state.accessToken;
+        var accesstoken = this.state.accessToken;
         return (
             <div className="container" id="account">
                 <div className="row">
                     <div className="col-sm-4"></div>
                     <div className="col-sm-4">
-                        <img className="img-center center-block" src={this.state.image} />
+                        <img className="img-center img-header center-block rounded-circle" src={this.state.image} />
                         <div className="name">
                             {this.state.name}
                         </div>
@@ -53,10 +54,10 @@ class UserProfile extends Component {
                         <div className="col-sm-1"></div>
                         <div className="col-sm-5">
                             <div className="section-header">
-                                Top 5 Songs
                             </div>
                         </div>
                         <div className="col-sm-5">
+                            <Account accessToken = {accesstoken}/>
                         </div>
                         <div className="col-sm-1"></div>
                     </div>
