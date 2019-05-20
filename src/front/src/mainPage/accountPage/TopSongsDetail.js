@@ -3,10 +3,10 @@ import '../songPage/song.css';
 
 export default class TopSongsDetail extends Component {
   state = {
-    "name": this.props.song.track.name,
-    "artist": this.props.song.track.artists[0].name,
-    "album": this.props.song.track.album.name,
-    "uri": this.props.song.track.uri,
+    "name": this.props.track.name,
+    "artist": this.props.track.artists[0].name,
+    "album": this.props.track.album.name,
+    "uri": this.props.track.uri,
     "accessToken" : this.props.accessToken
   }
   render() {

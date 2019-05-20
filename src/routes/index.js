@@ -35,7 +35,7 @@ router.get('/login', cors(corsOptions), function (req, res) {
     res.cookie(stateKey, state);
 
     // your application requests authorization
-    var scope = 'streaming user-read-birthdate user-read-private user-read-email  playlist-modify-public playlist-modify-private playlist-read-private playlist-read-collaborative user-read-recently-played user-modify-playback-state user-read-playback-state';
+    var scope = 'user-top-read streaming user-read-birthdate user-read-private user-read-email  playlist-modify-public playlist-modify-private playlist-read-private playlist-read-collaborative user-read-recently-played user-modify-playback-state user-read-playback-state';
     res.redirect('https://accounts.spotify.com/authorize?' +
         querystring.stringify({
             response_type: 'code',

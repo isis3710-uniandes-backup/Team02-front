@@ -14,7 +14,7 @@ class Account extends Component {
             "accessToken": accessToken
         }
 
-        fetch('https://api.spotify.com/v1/me/player/recently-played',
+        fetch('https://api.spotify.com/v1/me/top/tracks?limit=5',
             {
                 method: 'GET',
                 headers: {
@@ -24,6 +24,7 @@ class Account extends Component {
             })
             .then((response) => {
                 response.json().then((data) => {
+                    console.log(data);
                     this.setState({ "songs": data.items });
                 });
 
@@ -53,7 +54,7 @@ class Account extends Component {
                         <div className="col-sm-1"></div>
                     </div>
                 </div>
-                {this.state.songs.map((e, i) => <TopSongsDetail key={i} song={e} accessToken={accessToken} />)}
+                {this.state.songs.map((e, i) => <TopSongsDetail key={i} track={e} accessToken={accessToken} />)}
             </div>
         );
     }
