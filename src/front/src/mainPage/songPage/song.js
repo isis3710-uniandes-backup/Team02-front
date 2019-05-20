@@ -11,12 +11,25 @@ export default class Song extends Component {
     "idlista": this.props.song.added_at.idLista
   }
   render() {
+    var name = this.state.name;
+    console.log(name);
+    if(name.length > 35){
+      name = name.substring(0,35)+ "...";
+    }
+    var album = this.state.album;
+    if(album.length > 25){
+      album = album.substring(0,25) + "...";
+    }
+    var artist = this.state.artist;
+    if(artist.length > 15){
+      artist = artist.substring(0,15) + "...";
+    }
     return (
       <div className="row table-item " id={"Fila"+this.state.name}>
         <div className="col-sm-1 function clickable" onClick={() => this.playSong(this.state.uri)}><center><i className="fas fa-play-circle"></i></center></div>
-        <div className="col-sm-4">{this.state.name}</div>
-        <div className="col-sm-2">{this.state.artist}</div>
-        <div className="col-sm-3">{this.state.album}</div>
+        <div className="col-sm-4">{name}</div>
+        <div className="col-sm-2">{artist}</div>
+        <div className="col-sm-3">{album}</div>
         <div className="col-sm-1"><span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a></span>
             <span class="table-down"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down"
                   aria-hidden="true"></i></a></span></div>
@@ -38,7 +51,6 @@ export default class Song extends Component {
     fetch(`http://localhost:3001/play/${this.state.accessToken}/tracks/${this.props.song.track.id}`)
     .then((response) => {
       response.text().then((text) => {
-        console.log(text);
       });
     });
   };
