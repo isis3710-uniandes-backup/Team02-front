@@ -7,18 +7,33 @@ export default class Song extends Component {
     "artist": this.props.song.track.artists[0].name,
     "album": this.props.song.track.album.name,
     "uri": this.props.song.track.uri,
-    "accessToken" : this.props.accessToken
+    "accessToken" : this.props.accessToken,
+    "idlista": this.props.song.added_at.idLista
   }
   render() {
     return (
-      <div className="row table-item ">
+      <div className="row table-item " id={"Fila"+this.state.name}>
         <div className="col-sm-1 function clickable" onClick={() => this.playSong(this.state.uri)}><center><i className="fas fa-play-circle"></i></center></div>
-        <div className="col-sm-5">{this.state.name}</div>
+        <div className="col-sm-4">{this.state.name}</div>
         <div className="col-sm-2">{this.state.artist}</div>
         <div className="col-sm-3">{this.state.album}</div>
-        <div className="col-sm-1 function clickable"><center><i className="fas fa-ellipsis-h"></i></center></div>
-      </div>)
+        <div className="col-sm-1"><span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a></span>
+            <span class="table-down"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down"
+                  aria-hidden="true"></i></a></span></div>
+
+        <div className="col-sm-1 function clickable" onClick={() => this.delete(this.state.name)}>
+          <span class="table-remove">
+            <button type="button" class="btn btn-danger btn-rounded btn-sm my-0">
+              Remove
+            </button>
+          </span>
+        </div>
+      </div>
+
+
+      )
   }
+
   playSong(uri) {
     fetch(`http://localhost:3001/play/${this.state.accessToken}/tracks/${this.props.song.track.id}`)
     .then((response) => {
@@ -27,4 +42,39 @@ export default class Song extends Component {
       });
     });
   };
+
+  delete(id) {    
+    var cosa = document.getElementById("Fila"+id);
+    if(cosa.parentNode)
+    {
+      var url = "https://api.spotify.com/v1/playlists/"+this.props.song.added_at.idLista+"/tracks";
+      fetch(url,
+      {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.state.accessToken,
+        },
+        body: JSON.stringify({
+          "tracks": [
+            { 
+              "uri": this.state.uri, 
+              "positions": [this.props.song.added_at.pos] 
+            }
+          ]
+          })
+        })
+      .then((res) => {
+        if(res.status == 403) {
+        alert("No puede elimnar canciones de listas que no le pertenencen");
+      }
+      else
+      {
+        cosa.parentNode.removeChild(cosa);
+      }
+      }
+    ).then( (res) => {});
+    }
+    
+  }
 }
