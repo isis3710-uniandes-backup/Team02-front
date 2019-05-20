@@ -32,7 +32,7 @@
     "birthdate": "Fecha de nacimiento: ",
     "email": "Correo electrónico: ",
     "followers": "Seguidores: ",
-    "id": "Id: ",
-    "type": "Tipo: "
-
+    "username": "Usuario: ",
+    "type": "Tipo: ",
+    "You are not authenticated" : "No estás auténticado"
 }

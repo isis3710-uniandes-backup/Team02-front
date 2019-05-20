@@ -124,7 +124,7 @@ class CreatePage extends Component {
                     <div className="row">
                         <div className="col-sm-11 section-title">Genres (min. 3)</div>
                         <div className="col-sm-1">
-                            <span className="badge badge-pill badge-primary ml-auto" id="genCount">0 Checked</span>
+                            <span className="badge badge-pill badge-primary ml-auto" id="genCount">0 / 52</span>
                         </div>
                     </div>
                     <div className="row">
@@ -338,7 +338,7 @@ class CreatePage extends Component {
             }
         }
         this.setState({ "selectedGenres": selected });
-        document.getElementById("genCount").innerHTML = selected.length + " Checked";
+        document.getElementById("genCount").innerHTML = selected.length + " / 52";
     }
     postPlaylist() {
         var data = {

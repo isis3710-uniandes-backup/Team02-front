@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
-import TopSongsDetail from './TopSongsDetail';
-import PlayListDetail from '../playlistPage/PlayListDetail';
-import '../songPage/song.css';
-import Song from '../songPage/song';
+import './UserProfile.css';
 
 class UserProfile extends Component {
     constructor(props) {
@@ -11,13 +8,12 @@ class UserProfile extends Component {
         var accessToken = props.match.params.accessToken;
         this.state = {
             "name": "",
-            "birthdate": "",
             "email": "",
             "followers": "",
             "id": "",
-            "type": "",
-            "uri": "",
-            "accessToken": accessToken
+            "accessToken": accessToken,
+            "coutry": "",
+            "image": ""
         }
 
         fetch('https://api.spotify.com/v1/me',
@@ -30,14 +26,14 @@ class UserProfile extends Component {
             })
             .then((response) => {
                 response.json().then((data) => {
-                    console.log(data);
                     this.setState({ "name": data.display_name });
-                    this.setState({ "birthdate": data.birthdate });
                     this.setState({ "email": data.email });
                     this.setState({ "followers": data.followers });
-                    this.setState({ "id": data.id });
-                    this.setState({ "type": data.type });
-                    this.setState({ "uri": data.uri });
+                    this.setState({ "username": data.id });
+                    this.setState({ "type": data.product });
+                    this.setState({ "coutry": data.country });
+                    this.setState({ "image": data.images[0].url });
+                    console.log(data);
                 });
 
             }).catch((error) => {
@@ -49,25 +45,33 @@ class UserProfile extends Component {
         var accessToken = this.state.accessToken;
         return (
             <div className="container" id="account">
-                <div className="header">
-                    <FormattedMessage id="User profile" />
+                <div className="row">
+                    <div className="col-sm-4"></div>
+                    <div className="col-sm-4">
+                        <img className = "img-center center-block" src={this.state.image} />
+                        <div className="name">
+                            {this.state.name}
+                        </div>
+                        <div className="col-sm-4"></div>
+                    </div>
                 </div>
-
-
                 <div className="content">
-               
+                    <div className="row">
                         <div className="col-sm-1"></div>
-                        <div className="col-sm-9"><FormattedMessage id="Name" /> : {this.state.name}</div>
-                        <div className="col-sm-9"><FormattedMessage id="birthdate" /> : {this.state.birthdate}</div>
-                        <div className="col-sm-9"><FormattedMessage id="email" /> : {this.state.email}</div>
-                        <div className="col-sm-9"><FormattedMessage id="followers" /> : {this.state.followers.total}</div>
-                        <div className="col-sm-9"><FormattedMessage id="id" /> : {this.state.id}</div>
-                        <div className="col-sm-9"><FormattedMessage id="type" /> : {this.state.type}</div>
-                        <div className="col-sm-9"><FormattedMessage id="uri" /> : {this.state.uri}</div>
+                        <div className="col-sm-5">
+                        </div>
+                        <div className="col-sm-5">
+                            <div ><FormattedMessage id="username" className="variable" />{this.state.username}</div>
+                            <div ><FormattedMessage id="Name" className="variable" /> : {this.state.name}</div>
+                            <div ><FormattedMessage id="email" className="variable" /> : {this.state.email}</div>
+                            <div ><FormattedMessage id="followers" className="variable" /> : {this.state.followers.total}</div>
+                            <div ><FormattedMessage id="type" className="variable" /> {this.state.type}</div>
+                        </div>
                         <div className="col-sm-1"></div>
-                   
+                    </div>
+
                 </div>
-                
+
             </div>
         );
     }

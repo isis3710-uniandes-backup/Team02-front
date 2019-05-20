@@ -32,6 +32,7 @@
     "birthdate": "Birthdate: ",
     "email": "Email: ",
     "followers": "Followers: ",
-    "id": "Id: ",
-    "type": "Type: "
+    "username": "Username: ",
+    "type": "Type: ",
+    "You are not authenticated" : "You are not authenticated"
 }
