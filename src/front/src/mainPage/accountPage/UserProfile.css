@@ -15,6 +15,10 @@
 #account .img-detail{
     width: 64px;
     height: 64px;
+    border: 1px solid white;
+}
+#account .index{
+    font-size: 40px;
 }
 #account .songInfo{
     padding-block-start: 10px;

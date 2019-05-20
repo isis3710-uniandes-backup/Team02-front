@@ -6,13 +6,13 @@ import '../songPage/song.css';
 class TopArtists extends Component {
     constructor(props) {
         super();
-        var accessToken = props.match.params.accessToken;
+        var accessToken = props.accessToken;
         this.state = {
             "artists": [],
             "accessToken": accessToken
         }
 
-        fetch('https://api.spotify.com/v1/me/top/artists?time_range=medium_term&limit=10&offset=5',
+        fetch('https://api.spotify.com/v1/me/top/artists?limit=5',
             {
                 method: 'GET',
                 headers: {
@@ -34,24 +34,13 @@ class TopArtists extends Component {
     render() {
         var accessToken = this.state.accessToken;
         return (
-            <div className="container" id="TopArtists">
-                <div className="header">
-                    <FormattedMessage id="Top artists" />
+            <div className="container" id="account">
+                <div className="section-header">
+                    Top 5 Artists
                 </div>
-
-
-                <div className="content">
-                    
-                    <div className="row table-header">
-                        <div className="col-sm-1"></div>
-                        <div className="col-sm-4"><FormattedMessage id="Name" /></div>
-                        <div className="col-sm-2"><FormattedMessage id="Popularity" /></div>
-                        <div className="col-sm-4"><FormattedMessage id="Uri" /></div>
-                        <div className="col-sm-1"></div>
-                    </div>
-                </div>
-                {this.state.artists.map((e, i) => <TopArtistsDetail key={i} track={e} accessToken={accessToken} />)}
+                {this.state.artists.map((e, i) => <TopArtistsDetail key={i} artist={e} index =  {this.state.artists.indexOf(e)} accessToken={accessToken} />)}
             </div>
+            
         );
     }
 }

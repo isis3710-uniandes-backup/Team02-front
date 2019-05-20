@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './mainPage.css';
 import { Route } from "react-router-dom";
 import PlaylistList from './playlistPage/PlaylistList';
-import Account from './accountPage/Account';
+import Account from './accountPage/TopSongs';
 import TopArtists from './accountPage/TopArtists';
 import UserProfile from './accountPage/UserProfile';
 import { FormattedMessage } from 'react-intl';

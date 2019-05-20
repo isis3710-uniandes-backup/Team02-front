@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import './UserProfile.css';
-import Account from './Account';
+import Account from './TopSongs';
+import TopArtists from './TopArtists';
 
 class UserProfile extends Component {
     constructor(props) {
@@ -27,7 +28,6 @@ class UserProfile extends Component {
                     this.setState({ "type": data.product });
                     this.setState({ "coutry": data.country });
                     this.setState({ "image": data.images[0].url });
-                    console.log(data);
                 });
 
             }).catch((error) => {
@@ -53,17 +53,17 @@ class UserProfile extends Component {
                     <div className="row">
                         <div className="col-sm-1"></div>
                         <div className="col-sm-5">
-                            <div className="section-header">
-                            </div>
+                            <TopArtists accessToken = {accesstoken} />
                         </div>
                         <div className="col-sm-5">
                             <Account accessToken = {accesstoken}/>
                         </div>
                         <div className="col-sm-1"></div>
                     </div>
-
                 </div>
-
+                <div className="section-header">
+                    Your Stats
+                </div>
             </div>
         );
     }
