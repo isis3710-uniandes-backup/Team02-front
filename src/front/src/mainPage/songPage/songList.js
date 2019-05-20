@@ -11,35 +11,50 @@ export default class SongList extends Component {
         this.state = {
             "name": "",
             "songs": [],
-            "acessToken" : accessToken
+            "acessToken" : accessToken,
+            "idlista" : ""
         }
         fetch(`http://localhost:3001/menu/${props.match.params.accessToken}/playlists/${props.match.params.idPlaylist}/tracks`)
             .then((response) => {
                 response.json().then((data) => {
                     this.setState({ "name": data.name });
                     this.setState({ "songs": data.tracks.items });
+                    this.setState({ "idlista": props.match.params.idPlaylist });
                     this.startWebPlayer(props.match.params.accessToken);
                 });
             });
     }
     render() {
         var accessToken = this.state.acessToken;
+        var idLista = this.state.idlista
+        var d = function(e,i) {
+          e.added_at = {idLista,"pos":i};
+          return e;
+        };
         return (
+
+
             <div className="container" id="song">
                 <div className="header">
                     {this.state.name}
+
                 </div>
                 <div className="content">
                     <div className="row table-header">
                         <div className="col-sm-1"></div>
-                        <div className="col-sm-5"><FormattedMessage id="Name" /></div>
+                        <div className="col-sm-4"><FormattedMessage id="Name" /></div>
                         <div className="col-sm-2"><FormattedMessage id="Artist" /></div>
                         <div className="col-sm-3"><FormattedMessage id="Album" /></div>
-                        <div className="col-sm-1"></div>
+                        <div className="col-sm-1">Sort</div>
+                        <div className="col-sm-1">Remove</div>
                     </div>
                 </div>
-                {this.state.songs.map((e, i) => <Song key={i} song={e} accessToken={accessToken} />)}
-            </div>)
+                {this.state.songs.map((e, i) => <Song key={i} song={d(e,i)} accessToken={accessToken}/>)}
+
+            </div>
+
+
+            )
     }
     startWebPlayer(text) {
         const script = document.createElement("script");
@@ -81,4 +96,5 @@ export default class SongList extends Component {
         startScript.appendChild(startScriptContent);
         document.body.appendChild(startScript);
     }
+    
 }
