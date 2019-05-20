@@ -166,25 +166,77 @@ router.post('/menu/:accesstoken/create', cors(corsOptions), function (req, res) 
         headers: { 'Authorization': 'Bearer ' + accesstoken },
         json: true
     }
-    request.get(getUserOptions, function (error, response, body){
+    var newId = "";
+    request.get(getUserOptions, function (error, response, body) {
         var postOptions = {
             url: `https://api.spotify.com/v1/users/${body.id}/playlists`,
             headers: { 'Authorization': 'Bearer ' + accesstoken },
             json: true,
-            body: req.body
+            body: req.body.playList
         }
-        request.post(postOptions, function(error, response, body){
-            if(response.statusCode != 201){
-                res.send("Missing Field");
+        request.post(postOptions, function (error, response, body) {
+            newId = body.id;
+            topTracksOptions = {
+                url: `https://api.spotify.com/v1/me/top/tracks?limit=50`,
+                headers: { 'Authorization': 'Bearer ' + accesstoken },
+                json: true
             }
-            else{
-                res.send(body.id);
-            }
+            request.get(topTracksOptions, function (error, response, body) {
+                var items = body.items;
+                var iter = Math.round(req.body.query.genres.length / 3);
+                for (let i = 0; i < iter; i++) {
+                    var song1 = Math.floor(Math.random() * (50));
+                    var song2 = song1;
+                    while (song1 == song2) {
+                        song2 = Math.floor(Math.random() * (50));
+                    }
+                    var genre1 = Math.floor(Math.random() * (req.body.query.genres.length));
+                    var genre2 = Math.floor(Math.random() * (req.body.query.genres.length));
+                    var genre3 = genre2;
+
+                    while (genre1 == genre2 || genre1 == genre3 || genre3 == genre2) {
+                        if (genre1 == genre2) {
+                            genre2 = Math.floor(Math.random() * (req.body.query.genres.length));
+                        }
+                        if (genre1 == genre3) {
+                            genre3 = Math.floor(Math.random() * (req.body.query.genres.length));
+                        }
+                        if (genre2 == genre3) {
+                            genre3 = Math.floor(Math.random() * (req.body.query.genres.length));
+                        }
+                    }
+                    var recommendationsOptions = {
+                        url: 'https://api.spotify.com/v1/recommendations?' + querystring.stringify({
+                            "limit": Math.round(50 / iter),
+                            "seed_tracks": items[song1].id + ',' + items[song2].id,
+                            "seed_genres": req.body.query.genres[genre1] + ',' + req.body.query.genres[genre2] + ',' + req.body.query.genres[genre3],
+                            "target_energy": req.body.query.energy,
+                            "target_popularity": req.body.query.popularity
+                        }),
+                        headers: { 'Authorization': 'Bearer ' + accesstoken },
+                        json: true
+                    }
+                    request.get(recommendationsOptions, function (error, response, body) {
+                        for (let track of body.tracks) {
+                            var addToPlaylistOptions = {
+                                url: 'https://api.spotify.com/v1/playlists/'+newId+'/tracks?' + querystring.stringify({
+                                    uris: track.uri
+                                }),
+                                headers: { 'Authorization': 'Bearer ' + accesstoken },
+                                json: true
+                            }
+                            request.post(addToPlaylistOptions, function(error, response, body){
+
+                            });
+                        }
+                    });
+                }
+                res.status(201).send(newId);
+            });
         });
     });
- 
-});
 
+});
 var stateKey = 'spotify_auth_state';
 
 
