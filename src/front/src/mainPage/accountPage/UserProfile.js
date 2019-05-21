@@ -3,6 +3,8 @@ import { FormattedMessage } from 'react-intl';
 import './UserProfile.css';
 import Account from './TopSongs';
 import TopArtists from './TopArtists';
+import * as d3 from "d3";
+import BarComponent from './BarComponent';
 
 class UserProfile extends Component {
     constructor(props) {
@@ -15,10 +17,11 @@ class UserProfile extends Component {
             "id": "",
             "accessToken": accessToken,
             "coutry": "",
-            "image": ""
+            "image": "",
+            "songs": [],
+            "artists": []
         }
-
-        fetch('http://localhost:3001/menu/'+accessToken+'/userProfile')
+        fetch('http://localhost:3001/menu/' + accessToken + '/userProfile')
             .then((response) => {
                 response.json().then((data) => {
                     this.setState({ "name": data.display_name });
@@ -29,10 +32,26 @@ class UserProfile extends Component {
                     this.setState({ "coutry": data.country });
                     this.setState({ "image": data.images[0].url });
                 });
-
             }).catch((error) => {
                 console.error(error);
             });;
+        fetch('https://api.spotify.com/v1/me/top/tracks?limit=50',
+            {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + accessToken,
+                },
+            })
+            .then((response) => {
+                response.json().then((data) => {
+                    this.setState({ "songs": data.items });
+                });
+
+            }).catch((error) => {
+                console.error(error);
+            });
+
     }
 
     render() {
@@ -53,16 +72,21 @@ class UserProfile extends Component {
                     <div className="row">
                         <div className="col-sm-1"></div>
                         <div className="col-sm-5">
-                            <TopArtists accessToken = {accesstoken} />
+                            <TopArtists accessToken={accesstoken} />
                         </div>
                         <div className="col-sm-5">
-                            <Account accessToken = {accesstoken}/>
+                            <Account accessToken={accesstoken} />
                         </div>
                         <div className="col-sm-1"></div>
                     </div>
                 </div>
                 <div className="section-header">
-                    Your Stats
+                    The music you listen to has the following characteristics
+                </div>
+                <div className="row">
+                    <div className="col-sm-1"></div>
+                    <BarComponent accessToken={accesstoken} />
+                    <div className="col-sm-1"></div>
                 </div>
             </div>
         );

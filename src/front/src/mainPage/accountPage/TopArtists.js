@@ -28,7 +28,7 @@ class TopArtists extends Component {
 
             }).catch((error) => {
                 console.error(error);
-            });;
+            });
     }
 
     render() {
