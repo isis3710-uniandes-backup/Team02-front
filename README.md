@@ -3,7 +3,7 @@
 El link es: TODO
 
 ### Versión en vivo:
-El link es: 34.220.86.8:3000
+El link es: http://34.220.86.8:3000
 
 ### Descripción:
 La idea del proyecto es hacer una página de reproducción de música, y de publicación de contenido musical. Es algo así como juntar Spotify y Soundcloud. Sin embargo, esperamos implementar un mejor sistema de recomendaciones y de creación de playlists que el de Spotify, y permitirle a los nuevos artistas obtener dinero por la reproducción de sus canciones.
