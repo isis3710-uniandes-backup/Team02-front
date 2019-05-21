@@ -6,11 +6,10 @@ El link es: TODO
 El link es: http://34.220.86.8:3000
 
 ### Descripción:
-La idea del proyecto es hacer una página de reproducción de música, y de publicación de contenido musical. Es algo así como juntar Spotify y Soundcloud. Sin embargo, esperamos implementar un mejor sistema de recomendaciones y de creación de playlists que el de Spotify, y permitirle a los nuevos artistas obtener dinero por la reproducción de sus canciones.
+La idea del proyecto es hacer una página de reproducción de música, y de publicación de contenido musical. Trabajando con la librería de Spotify, se implementa un mejor sistema de recomendaciones que el que tiene Spotify actualmente a partir de los gustos del usuario y de unos parámetros que debe dar. Por otra parte, se incluyeron stats del usuario como su top 5 de canciones y las caracteristicas que tienen las canciones que más escucha.
 
 ### Para correrlo:
-!!! Es necesario tener una cuenta de spotify. No hay necesidad de que sea premium
-!!! Es necesario acceder a la cuenta de spotify antes de probar las funciones.
+!!! Es necesario tener una cuenta de spotify. Para reproducir la música es necesario que sea premium.
 
 1. Ir a la carpeta src: `$ cd src`
 2. Instalar las dependencias: `$ npm install --save`
@@ -29,7 +28,8 @@ UML link: https://www.lucidchart.com/invitations/accept/e41fe50b-a024-4455-aa34-
 3. Ver las canciones de una playlist
 4. Reproducir una canción
 5. Crear una playlist automática
-6. Ver información del usuario
+6. Eliminar canciones de una playlist
+7. Ver información del usuario
 
 ### Consideraciones
 
