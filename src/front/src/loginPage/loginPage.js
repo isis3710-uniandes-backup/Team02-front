@@ -18,7 +18,7 @@ class Login extends Component {
                   <h1><b> <FormattedMessage id="Sign In" /></b></h1>
                 </div>
                 <div className="card-body">
-                  <a className="styledLink" href="http://localhost:3001/login"><span><button  className="btn float-right login_btn"><i className="fab fa-spotify sptIcon"> <FormattedMessage id="Connect using spotify" /></i></button></span></a>
+                  <a className="styledLink" href="http://34.220.86.8:3001/login"><span><button  className="btn float-right login_btn"><i className="fab fa-spotify sptIcon"> <FormattedMessage id="Connect using spotify" /></i></button></span></a>
                   <br></br>
                   <br></br>
                   <div className="d-flex justify-content-center links">

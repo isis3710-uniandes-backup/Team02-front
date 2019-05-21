@@ -14,7 +14,7 @@ export default class SongList extends Component {
             "acessToken" : accessToken,
             "idlista" : ""
         }
-        fetch(`http://localhost:3001/menu/${props.match.params.accessToken}/playlists/${props.match.params.idPlaylist}/tracks`)
+        fetch(`http://34.220.86.8:3001/menu/${props.match.params.accessToken}/playlists/${props.match.params.idPlaylist}/tracks`)
             .then((response) => {
                 response.json().then((data) => {
                     this.setState({ "name": data.name });

@@ -48,7 +48,7 @@ export default class Song extends Component {
   }
 
   playSong(uri) {
-    fetch(`http://localhost:3001/play/${this.state.accessToken}/tracks/${this.props.song.track.id}`)
+    fetch(`http://34.220.86.8:3001/play/${this.state.accessToken}/tracks/${this.props.song.track.id}`)
     .then((response) => {
       response.text().then((text) => {
       });

@@ -21,7 +21,7 @@ class UserProfile extends Component {
             "songs": [],
             "artists": []
         }
-        fetch('http://localhost:3001/menu/' + accessToken + '/userProfile')
+        fetch('http://34.220.86.8:3001/menu/' + accessToken + '/userProfile')
             .then((response) => {
                 response.json().then((data) => {
                     this.setState({ "name": data.display_name });

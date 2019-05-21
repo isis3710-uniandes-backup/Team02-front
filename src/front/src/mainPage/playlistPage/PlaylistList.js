@@ -12,7 +12,7 @@ class PlaylistList extends Component {
             "playlists":[],
             "accessToken" : accessToken
         }
-        fetch('http://localhost:3001/menu/'+accessToken +'/playlists')
+        fetch('http://34.220.86.8:3001/menu/'+accessToken +'/playlists')
         .then((response) => {
             response.json().then((data) => {
                 this.setState({ "playlists": data.items });

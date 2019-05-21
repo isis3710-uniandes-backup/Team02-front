@@ -361,7 +361,7 @@ class CreatePage extends Component {
             //TODO handle error
         }
         else{
-            fetch(`http://localhost:3001/menu/${this.state.accessToken}/create`, {
+            fetch(`http://34.220.86.8:3001/menu/${this.state.accessToken}/create`, {
                 method: 'POST',
                 body: JSON.stringify(data),
                 headers: {
