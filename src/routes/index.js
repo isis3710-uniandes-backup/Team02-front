@@ -6,10 +6,10 @@ var querystring = require('querystring');
 
 var client_id = '71c72374958f467eb800a9c42c35fc98'; // Your client id
 var client_secret = '18c278187b574429bc40bce632093364';
-var redirect_uri = 'http://localhost:3001/callback';
+var redirect_uri = 'http://34.220.86.8:3001/callback';
 
 const corsOptions = {
-    origin: 'http://localhost:3000'
+    origin: 'http://34.220.86.8:3000'
 }
 /**
  * Generates a random string containing numbers and letters
@@ -25,7 +25,7 @@ var generateRandomString = function (length) {
     return text;
 };
 router.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+    res.header("Access-Control-Allow-Origin", "http://34.220.86.8:3000");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
@@ -79,7 +79,7 @@ router.get('/callback', cors(corsOptions), function (req, res) {
             if (!error && response.statusCode === 200) {
 
                 access_token = body.access_token;
-                res.redirect('http://localhost:3000/menu/' + body.access_token);
+                res.redirect('http://34.220.86.8:3000/menu/' + body.access_token);
 
             } else {
                 res.redirect('/error/' +
