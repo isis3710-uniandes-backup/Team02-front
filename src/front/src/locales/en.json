@@ -34,5 +34,18 @@
     "followers": "Followers: ",
     "username": "Username: ",
     "type": "Type: ",
-    "You are not authenticated" : "You are not authenticated"
+    "You are not authenticated" : "You are not authenticated",
+    "Top 5 Artists" : "Top 5 Artists",
+    "Top 5 Songs" : "Top 5 Songs",
+    "Genres (min. 3)" : "Genres (min. 3)",
+    "Description (Optional)" : "Description (Optional)",
+    "The music you listen" : "The music you listen to has the following characteristics",
+    "Popularity:" : "Popularidad:",
+    "Remove:" : "Remove:",
+    "Sort:" : "Sort:"
+    
+
+    
+    
+
 }

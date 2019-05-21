@@ -36,7 +36,7 @@ class Account extends Component {
         return (
             <div className="container" id="account">
                 <div className="section-header">
-                    Top 5 Songs
+                <FormattedMessage id="Top 5 Songs" /> 
                 </div>
                 {this.state.songs.map((e, i) => <TopSongsDetail key={i} track={e} index = {this.state.songs.indexOf(e)}accessToken={accessToken} />)}
             </div>

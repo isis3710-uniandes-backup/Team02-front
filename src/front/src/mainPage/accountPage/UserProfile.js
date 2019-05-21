@@ -81,7 +81,7 @@ class UserProfile extends Component {
                     </div>
                 </div>
                 <div className="section-header">
-                    The music you listen to has the following characteristics
+                    <FormattedMessage id="The music you listen" /> 
                 </div>
                 <div className="row">
                     <div className="col-sm-1"></div>

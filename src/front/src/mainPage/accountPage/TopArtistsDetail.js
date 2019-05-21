@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../songPage/song.css';
+import { FormattedMessage } from 'react-intl';
 
 export default class TopArtistsDetail extends Component {
   state = {
@@ -19,7 +20,7 @@ export default class TopArtistsDetail extends Component {
         </div>
         <div className="col-sm-9">
           {this.state.name}
-          <div className="songArtist">Popularity: {this.state.popularity}</div>
+          <div className="songArtist"> <FormattedMessage id="Popularity:" />  {this.state.popularity}</div>
         </div>
       </div>)
   }

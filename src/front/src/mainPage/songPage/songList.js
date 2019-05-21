@@ -45,8 +45,8 @@ export default class SongList extends Component {
                         <div className="col-sm-4"><FormattedMessage id="Name" /></div>
                         <div className="col-sm-2"><FormattedMessage id="Artist" /></div>
                         <div className="col-sm-3"><FormattedMessage id="Album" /></div>
-                        <div className="col-sm-1">Sort</div>
-                        <div className="col-sm-1">Remove</div>
+                        <div className="col-sm-1"><FormattedMessage id="Sort" /> </div>
+                        <div className="col-sm-1"> <FormattedMessage id="Remove" /> </div>
                     </div>
                 </div>
                 {this.state.songs.map((e, i) => <Song key={i} song={d(e,i)} accessToken={accessToken}/>)}

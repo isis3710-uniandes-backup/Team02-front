@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './CreatePage.css';
-
+import { FormattedMessage } from 'react-intl';
 
 class CreatePage extends Component {
     constructor(props) {
@@ -74,12 +74,12 @@ class CreatePage extends Component {
         return (
             <div className="container" id="create">
                 <div className="header">
-                    Create Playlist
+                   <FormattedMessage id="Create Playlist" /> 
                 </div>
                 <div className="content">
                     <div className="row">
                         <div className="col-sm-11 section-title">
-                            Name
+                            <FormattedMessage id="Name" /> 
                         </div>
                         <div className="col-sm-1">
                             <span className="badge badge-pill badge-primary ml-auto" id="nameCount">0 / 100</span>
@@ -89,7 +89,7 @@ class CreatePage extends Component {
                     <br></br>
                     <div className="row">
                         <div className="col-sm-11 section-title">
-                            Description (Optional)
+                            <FormattedMessage id="Description (Optional)" /> 
                         </div>
                         <div className="col-sm-1">
                             <span className="badge badge-pill badge-primary ml-auto" id="descrCount">0 / 300</span>
@@ -100,7 +100,7 @@ class CreatePage extends Component {
                     <br></br>
                     <div className="row">
                         <div className="col-sm-6 section-title">
-                            Popularity
+                            <FormattedMessage id="Popularity" /> 
                             <select className="custom-select" id="popularity">
                                 <option value={100}>Mainstream</option>
                                 <option value={75}>Popular</option>
@@ -122,7 +122,7 @@ class CreatePage extends Component {
                     </div>
                     <br></br>
                     <div className="row">
-                        <div className="col-sm-11 section-title">Genres (min. 3)</div>
+                        <div className="col-sm-11 section-title"><FormattedMessage id="Genres (min. 3)" /> </div>
                         <div className="col-sm-1">
                             <span className="badge badge-pill badge-primary ml-auto" id="genCount">0 / 52</span>
                         </div>

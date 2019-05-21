@@ -36,7 +36,7 @@ class TopArtists extends Component {
         return (
             <div className="container" id="account">
                 <div className="section-header">
-                    Top 5 Artists
+                    <FormattedMessage id="Top 5 Artists" /> 
                 </div>
                 {this.state.artists.map((e, i) => <TopArtistsDetail key={i} artist={e} index =  {this.state.artists.indexOf(e)} accessToken={accessToken} />)}
             </div>
