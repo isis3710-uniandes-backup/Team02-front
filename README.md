@@ -1,6 +1,6 @@
 # Team02
 ### Video:
-El link es: TODO
+El link es: https://youtu.be/2Xbd6waG2bg
 
 ### Versión en vivo:
 El link es: http://34.220.86.8:3000
