@@ -40,11 +40,8 @@ class MainPage extends Component {
           <div className="d-flex" id="wrapper">
             <div id="sidebar-wrapper">
               <div className="list-group list-group-flush">
-                <a className="styledLink" href={`/menu/${this.state.accessToken}`} onClick={() => { this.changeSelected("home") }}><div className="sidebar-heading selected" id="home"><i className="fas fa-home"></i> <FormattedMessage id="Home" />  </div></a>
+                <a className="styledLink" href={`/menu/${this.state.accessToken}`} onClick={() => { this.changeSelected("home") }}><div className="sidebar-heading" id="home"><i className="fas fa-home"></i> <FormattedMessage id="Home" />  </div></a>
                 <a className="styledLink" href={`/menu/${this.state.accessToken}/create`} onClick={() => { this.changeSelected("create") }}><div className="sidebar-heading" id="create"><i className="fas fa-plus-circle"></i> <FormattedMessage id="Create Playlist" />  </div></a>
-                <div className="sidebar-heading"><i className="fas fa-play-circle"></i> <FormattedMessage id="I'm Feeling Lucky" /></div>
-                <a className="styledLink" href={`/menu/${this.state.accessToken}/account`} onClick={() => { this.changeSelected("account") }}><div className="sidebar-heading" id="account"><i className="fas fa-user-circle"></i> <FormattedMessage id="Recently played" />  </div></a>
-                <a className="styledLink" href={`/menu/${this.state.accessToken}/TopArtists`} onClick={() => { this.changeSelected("TopArtists") }}><div className="sidebar-heading" id="TopArtists"><i className="fas fa-user-circle"></i> <FormattedMessage id="Top artists" />  </div></a>
                 <a className="styledLink" href={`/menu/${this.state.accessToken}/UserProfile`} onClick={() => { this.changeSelected("UserProfile") }}><div className="sidebar-heading" id="TopArtists"><i className="fas fa-user-circle"></i> <FormattedMessage id="User profile" />  </div></a>
               </div>
 
